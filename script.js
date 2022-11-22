@@ -9,6 +9,7 @@ let users = [
     {userName: "janne", passWord: "test"},
     {userName: "zarina", passWord: "lösen1"},
 ]  
+//object arrow
 
 logInBtn.addEventListener("click", () => {
 
@@ -22,4 +23,5 @@ logInBtn.addEventListener("click", () => {
         printUserMessage.innerHTML = "Ivalid user- and or password!";
     }
 });
+// find för att leta i object arrow
    

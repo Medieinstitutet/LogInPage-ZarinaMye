@@ -1,5 +1,12 @@
 [ ] lägg ihop password till inlogget
 [ ] när inloggad är inloggad- ta bort inlogg och byt ut mot log ut knapp
 [ ] när inloggad är välkomen + namn ok ? som nu... FRÅGA !
-[ ] inlogget ska sparas i local storage 
-[ ] 
+[ ] välkomst sida? fråga ok med bara formulär eller ska ex content innehålla 3 vyer 
+    ( el räcker formullär, fel och välkomen?)
+[ ] inlogget ska sparas i local storage, dvs sparas i webbläsaren
+[ ] logga ut 
+VG 
+[x] fler användare, doc i readme
+[ ] ny användare ska läggas till
+
+[ ] styla/css sidan 
