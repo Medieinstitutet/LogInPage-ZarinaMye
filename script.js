@@ -9,13 +9,12 @@ let users = [
     {userName: "janne", passWord: "test"},
     {userName: "zarina", passWord: "lösen1"},
 ]  
-// object arrow
 
 logInBtn.addEventListener("click", () => {
 
-    let user = users.find(user => user.userName === printUserMessage.value);
+    let user = users.find(user => user.userName === findUserName.value);
     console.log("user", user);
- //varför hittas inte if...?
+ 
     if (user) {
         printUserMessage.innerHTML = "Welcome" + " " + user.userName +  "!";
     } else
@@ -24,4 +23,3 @@ logInBtn.addEventListener("click", () => {
     }
 });
    
-//användt find för att söka i object arrow:en
