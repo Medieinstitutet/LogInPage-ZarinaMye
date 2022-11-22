@@ -8,6 +8,7 @@ const printUserMessage = document.getElementById("userMessage");
 let users = [
     {userName: "janne", passWord: "test"},
     {userName: "zarina", passWord: "lösen1"},
+    {userName: "mollan", passWord: "lösen2"},
 ]  
 //object arrow
 
