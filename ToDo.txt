@@ -1,5 +1,6 @@
 [ ] lägg ihop password till inlogget
 [ ] när inloggad är inloggad- ta bort inlogg och byt ut mot log ut knapp
+[ ] när inloggad ska "hello! if you are a member...."tas bort
 [ ] när inloggad är välkomen + namn ok ? som nu... FRÅGA !
 [ ] välkomst sida? FRÅGA! ok med bara formulär eller ska ex content innehålla 3 vyer 
     ( el räcker formullär, fel och välkomen?)

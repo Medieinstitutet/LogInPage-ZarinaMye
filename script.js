@@ -12,6 +12,10 @@ let users = [
 ]  
 //object arrow
 
+const para = document.createElement("p");
+para.innerHTML = "Hello! <br> If you are a member you know what to do, if not please sign up.";
+document.body.appendChild(para);
+
 logInBtn.addEventListener("click", () => {
 
     let user = users.find(user => user.userName === findUserName.value);
