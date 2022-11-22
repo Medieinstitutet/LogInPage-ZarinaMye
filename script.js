@@ -18,7 +18,7 @@ logInBtn.addEventListener("click", () => {
     console.log("user", user);
  
     if (user) {
-        printUserMessage.innerHTML = "Welcome" + " " + user.userName +  "!";
+        printUserMessage.innerHTML = "Welcome" + " " + user.userName + " "+ "to your member page!";
     } else
     {
         printUserMessage.innerHTML = "Ivalid user- and or password!";
