@@ -1,11 +1,7 @@
-
-
-
-//  
-
-const findUser = document.getElementById("findUser");
+const findUserName = document.getElementById("UserName");
+//const findPassWord = document.getElementById("PassWord");
 const logInBtn = document.getElementById("logInBtn");
-const logOutBtn = document.getElementById("logOutBtn");
+//const logOutBtn = document.getElementById("logOutBtn");
 const printUserMessage = document.getElementById("userMessage");
 
 let users = [
