@@ -1,0 +1,5 @@
+[ ] lägg ihop password till inlogget
+[ ] när inloggad är inloggad- ta bort inlogg och byt ut mot log ut knapp
+[ ] när inloggad är välkomen + namn ok ? som nu... FRÅGA !
+[ ] inlogget ska sparas i local storage 
+[ ] 
