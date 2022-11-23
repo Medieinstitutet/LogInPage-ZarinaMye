@@ -23,11 +23,9 @@ logInBtn.addEventListener("click", () => {
  
     if (user) {
         printUserMessage.innerHTML = "Welcome" + " " + user.userName + " "+ "to your member page!";
-        
-
-        //const logOutBtn = document.createElement("button")
-        //logOutBtn.innerHTML = <button>Log out</button>
-        //document.body.appendChild(menu)
+        let btn = document.createElement("button");
+        btn.innerHTML = "Log out";
+        document.body.appendChild(btn);
 
     } else if (user)
     {
