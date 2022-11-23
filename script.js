@@ -63,6 +63,7 @@ if (localStorage.getItem("userName")) {
     printHomePage();
 }
 
+
 saveNameBtn.addEventListener("click", () =>  {
     //2.fånga inskrivet namn o spara i ls =(ny användare )
     //(måste också gå att kolla om nått finns sparat i ls, typ mina användare)
@@ -76,7 +77,7 @@ function printMemberPage () {
     //(render fumktion dvs skriver över gammalt) 
     //3.hämta namn från ls o skriv ut (=välkomst sidan om inlogg finns)
     let userName = localStorage.getItem("userName");
-    showName.innerText = "Welcome" + " " + userName;
+    showName.innerText = "Welcome" + " " + userName + " " + "to your member page!";
 
     //6.skapa och skriv ut en glömknapp(log out)
     let logOutButton = document.createElement("button");
@@ -94,7 +95,7 @@ function printMemberPage () {
 
 function printHomePage () {
     //4.skriv ut att det inte finns ett namn sparat (sida med inlogg 2x inputfält och start)
-    showName.innerText = "You are unknown";  //=startsidan
+    showName.innerHTML = "Hello! <br> If you are a member you know what to do, if not please sign up.";;  //=startsidan
     // (inloggbtn+inputfält x2+ sign inbtn)
     /* let logInButton = document.createElement("button");
     logInButton.innerText = "Log in"
