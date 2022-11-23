@@ -38,9 +38,10 @@ logInBtn.addEventListener("click", () => {
 // find för att leta i object arrow
    
 /* //logInBtn.addEventListener("click", () => {
-    
+
     if ( inputfält tomt){
         "Hello! <br> If you are a member you know what to do, if not...
+        log in knapp o input formulär finns
     }
     else if (user login true ) {
         "Welcome" + " " + user.userName + " "+ "to your...
@@ -49,4 +50,5 @@ logInBtn.addEventListener("click", () => {
     }
     else (user log in false) {
         "Ivalid user- and or password!";
+        log in knapp o input formulär finns
     }  */
