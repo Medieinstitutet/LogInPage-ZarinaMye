@@ -12,20 +12,32 @@ let users = [
 ]  
 //object arrow
 
+// ta reda på o någon inloggad? från ls (if) alltid 
+
+// true = visa välkomstsida för inloggad
+// false = visa inloggningsf.
+
+
+// 
+
 const para = document.createElement("p");
 para.innerHTML = "Hello! <br> If you are a member you know what to do, if not please sign up.";
 document.body.appendChild(para);
 
 logInBtn.addEventListener("click", () => {
 
-    let user = users.find(user => user.userName === findUserName.value);
+    let user = users.find(user => user.userName === findUserName.value && user.passWord === findPassWord.value );
     console.log("user", user);
  
     if (user) {
         printUserMessage.innerHTML = "Welcome" + " " + user.userName + " "+ "to your member page!";
+       
         let btn = document.createElement("button");
         btn.innerHTML = "Log out";
         document.body.appendChild(btn);
+
+        /* document.getElementById("logInBtn").onclick = function() {
+        document.getElementById("logInBtn").style.display = "none"; */
 
     } else
     {
@@ -49,3 +61,4 @@ logInBtn.addEventListener("click", () => {
         "Ivalid user- and or password!";
         log in knapp o input formulär finns
     }  */
+
