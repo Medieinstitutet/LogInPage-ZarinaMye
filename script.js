@@ -18,7 +18,7 @@ document.body.appendChild(para);
 
 logInBtn.addEventListener("click", () => {
 
-    let user = users.find(user => user.userName === findUserName.value);//&& user.passWord === findPassWord.value);
+    let user = users.find(user => user.userName === findUserName.value);
     console.log("user", user);
  
     if (user) {
@@ -27,11 +27,10 @@ logInBtn.addEventListener("click", () => {
         btn.innerHTML = "Log out";
         document.body.appendChild(btn);
 
-    } else if (user)
+    } else
     {
         printUserMessage.innerHTML = "Ivalid user- and or password!";
-    } 
-
+    }
 });
 // find för att leta i object arrow
    
