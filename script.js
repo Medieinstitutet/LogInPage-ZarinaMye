@@ -7,35 +7,38 @@ let showUserMessage = document.getElementById("showUserMessage")
 let labelPassWord = document.getElementById("labelPassWord")
 let labelUserName = document.getElementById("labelUserName")
 
-let users = [
-    {id:1, userName:'janne', password:"test",},
-    {id:2, userName:'zarina', password: "lösen1",},
-    {id:3, userName:'mollan', password:"lösen2",},
-     //object arrow  Behöver de ha id? så kan skiljas åt...prövar..
-    
-]   
 
-//setItem för att spara till LS, stringify?
-if (localStorage.getItem("users")) {
+/* if (localStorage.getItem("users")) {
     console.log('user finns i LS');
 } else { 
+    let users = [
+        {id:1, userName:'janne', password:"test",},
+        {id:2, userName:'zarina', password: "lösen1",},
+        {id:3, userName:'mollan', password:"lösen2",},
+         //object arrow  Behöver de ha id? så kan skiljas åt...prövar..
+    ]   
     localStorage.setItem("users", JSON.stringify(users));
     console.log("user har skapats i LS");
-}
+} */
+
+/* localStorage.setItem("userName", "janne");
+localStorage.setItem("passWord", "test");
+ */
 
 //5.Kolla om det finns ett sparat inlogg, från ls (if) true = visa inlogg, false = visa homepage.)
 //dvs om true kalla på printmemberpage om false kalla på printHomepage
-if (localStorage.getItem("userName")) {  //users.userName?
-    printMemberPage();
+if (localStorage.getItem("userName")) {  
 } else {
     printHomePage();
 }
 
 logInBtn.addEventListener("click", () =>  {
-    //2.fånga inskrivet namn o spara i ls =(ny användare? )
-    //KVAR!?(måste också gå att kolla om nått finns sparat i ls, dvs mina användare)HUR?
-    let userName = inputUserName.value; //KVAR!? koppla ihop password också..
-    localStorage.setItem("userName", userName);
+    //2.fånga inskrivet namn o spara i ls =
+    let userName = inputUserName.value;
+    //let passWord = inputPassWord.value; //KVAR!? koppla ihop password också..FUNKAR inte!!
+    localStorage.setItem("userName", "janne");
+    //localStorage.setItem("passWord", passWord);  
+
     printMemberPage();
 });
 
@@ -65,7 +68,7 @@ function printMemberPage () {
 
 function printHomePage () {
     //4.skriv ut att det inte finns ett namn sparat i ls 
-    showUserMessage.innerHTML = "Hello! <br> If you are a member you know what to do, if not please sign up.";;  //=startsidan
+    showUserMessage.innerHTML = "Hello! <br> If you are a member you know what to do, if not please sign up.";  //=startsidan
     // visa sida med inlogg + 2st inputfält 
     logInBtn.style.display = "block";
     inputPassWord.style.display ="block";
