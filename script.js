@@ -1,17 +1,12 @@
-/* const findUserName = document.getElementById("UserName");
-const findPassWord = document.getElementById("PassWord");
-const logInBtn = document.getElementById("logInBtn");
-//const logOutBtn = document.getElementById("logOutBtn");
-//const newUserBtn = document.getElementById("newUserBtn");
-const printUserMessage = document.getElementById("userMessage");
 
-let users = [
+
+/* let users = [
     {userName: "janne", passWord: "test"},
     {userName: "zarina", passWord: "lösen1"},
     {userName: "mollan", passWord: "lösen2"},
 ]   */
 //object arrow
-
+////////////////////////////////////////////////////////////////////////////////////////
 // ta reda på o någon inloggad? från ls (if) alltid 
 
 // true = visa välkomstsida för inloggad
@@ -37,16 +32,16 @@ if (localStorage.getItem("userName")) {
 
 logInBtn.addEventListener("click", () =>  {
     //2.fånga inskrivet namn o spara i ls =(ny användare )
-    //(måste också gå att kolla om nått finns sparat i ls, typ mina användare)HUR?
-    let userName = inputUserName.value;
+    //KVAR!?(måste också gå att kolla om nått finns sparat i ls, typ mina användare)HUR?
+    let userName = inputUserName.value; //KVAR!? koppla ihop password också..
     localStorage.setItem("userName", userName);
     printMemberPage();
 
 });
 
 function printMemberPage () { 
-    //(render fumktion dvs skriver över gammalt) 
-    //3.hämta namn från ls o skriv ut (=välkomst sidan om inlogg finns)
+    //(render funktion dvs skriver över gammalt) 
+    //3.hämta namn från ls o skriv ut homepage om inlogg finns
     let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Welcome" + " " + userName + " " + "to your member page!";
 
@@ -57,8 +52,7 @@ function printMemberPage () {
     labelPassWord.style.display ="none";
     labelUserName.style.display ="none";
 
-
-    //6.skapa och skriv ut en glömknapp(log out)
+    //6.skapa och skriv ut en log out knapp
     let logOutButton = document.createElement("button");
     logOutButton.innerText = "Log out"
     logOutButton.addEventListener("click", () => {
@@ -66,13 +60,12 @@ function printMemberPage () {
         printHomePage();
     });
     showUserMessage.appendChild(logOutButton);
-
 }
 
 function printHomePage () {
-    //4.skriv ut att det inte finns ett namn sparat (sida med inlogg 2x inputfält och start)
+    //4.skriv ut att det inte finns ett namn sparat i ls 
     showUserMessage.innerHTML = "Hello! <br> If you are a member you know what to do, if not please sign up.";;  //=startsidan
-    // (visa inloggbtn+inputfält x2+ sign inbtn)
+    // visa sida med inlogg 2x inputfält och start
     logInBtn.style.display = "block";
     inputPassWord.style.display ="block";
     inputUserName.style.display ="block";
@@ -80,7 +73,7 @@ function printHomePage () {
     labelUserName.style.display ="block";
 }
 
-//function om felaktigt lösen () print....
+//KVAR!? function om felaktigt lösen () print....
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
