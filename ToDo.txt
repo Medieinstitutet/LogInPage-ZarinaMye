@@ -1,14 +1,16 @@
 [x] felmeddelande vid fel password/anvd
 [ ] lägg ihop password till inlogget
-[ ] när inloggad är inloggad- ta bort inlogg och byt ut mot log ut knapp
-[ ] när inloggad ska "hello! if you are a member....(välkomstvy)"tas bort
-[ ] när inloggad är välkomen + namn ok ? som nu... FRÅGA !
-[ ] välkomst sida? FRÅGA! ok med bara formulär eller ska ex content innehålla 3 vyer 
+[x] när inloggad är inloggad- ta bort inlogg och byt ut mot log ut knapp
+[x] när inloggad ska "hello! if you are a member....(välkomstvy)"tas bort
+[x] när inloggad är välkomen + namn ok ? som nu... FRÅGA !
+[x] välkomst sida? FRÅGA! ok med bara formulär eller ska ex content innehålla 3 vyer 
     ( el räcker formullär, fel och välkomen?)
-[ ] inlogget ska sparas i local storage, dvs sparas i webbläsaren
-[ ] logga ut 
+[x] inlogget ska sparas i local storage, dvs sparas i webbläsaren
+[x] logga ut 
+[ ] sparade användare ska finnas 
+[ ] felmeddelande visas vid felaktiga inlogg 
 VG 
-[x] fler användare, doc i readme
+[] fler användare, doc i readme
 [ ] ny användare ska läggas till
 
 
