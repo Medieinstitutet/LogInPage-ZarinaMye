@@ -8,12 +8,12 @@ let labelPassWord = document.getElementById("labelPassWord")
 let labelUserName = document.getElementById("labelUserName")
 
 localStorage.setItem("userName", "janne"); // när janne finns hålls han inloggad hela tiden..??
-localStorage.setItem("passWord", "test");
+localStorage.setItem("passWord", "test");  //Tips kolla på början av film från idag!
 
 
 //5.Kolla om det finns ett sparat inlogg, från ls (if) true = visa inlogg, false = visa homepage.)
 //dvs om true kalla på printmemberpage om false kalla på printHomepage
-if (localStorage.getItem("userName")) {
+if (localStorage.getItem("userName")) { //för att det tas här..vill eg bara kolla om nån är inloggad..
     printMemberPage();
 } else {
     printHomePage();
@@ -24,7 +24,7 @@ logInBtn.addEventListener("click", () =>  {
     //let passWord = inputPassWord.value; //KVAR!? koppla ihop password också..FUNKAR inte!!
     //localStorage.setItem("passWord", passWord);  
     let userName = inputUserName.value; //KVAR!? koppla ihop password också..
-    localStorage.setItem("userName", userName);
+    localStorage.setItem("userName", userName); //skriver namnet på sidan men ..
     printMemberPage();
 });
 
@@ -68,7 +68,7 @@ function printHomePage () {
 
 newUserBtn.addEventListener("click", () =>  {
     //KVAR!? function om sign up btn () lägg till i ls och kör ()print memberpage
-});
+}); //Tips kolla på övn webbshop, + behandla ls som databas
 
 
 
@@ -83,7 +83,7 @@ newUserBtn.addEventListener("click", () =>  {
     console.log("user", user);
  
     if (user) {
-        printUserMessage.innerHTML = "Welcome" + " " + user.userName + " "+ "to your member page!";
+        printUserMessage.innertext = "Welcome" + " " + user.userName + " "+ "to your member page!";
     } else {
     printUserMessage.innerHTML = "Ivalid user- and or password!";
    }
