@@ -49,7 +49,7 @@ function printMemberPage () {
     //(render-funktion dvs skriver över gammalt) 
     //3.hämta namn från ls o skriv ut homepage om inloggad finns
     let userName = localStorage.getItem("userName");
-    showUserMessage.innerText = "Welcome" + " " + userName + " " + "to your member page!";
+    showUserMessage.innerText = "Welcome" + " " + userName + " " + "to your member page! ";
 
     //7. Ta  bort log in knapp och inputfält
     logInBtn.style.display = "none";
@@ -83,7 +83,7 @@ function printHomePage () {
 
 function printWrongPage () {
     //KVAR!? function om felaktigt lösen () print....
-    showUserMessage.innerHTML = "Sorry, ivalid user- and or password!";
+    showUserMessage.innerHTML = "Sorry, ivalid user- and or password! ";
     logInBtn.style.display = "block";
     inputPassWord.style.display ="block";
     inputUserName.style.display ="block";
@@ -95,13 +95,24 @@ function printWrongPage () {
 newUserBtn.addEventListener("click", () =>  {
     //KVAR!? function om sign up btn () lägg till i ls och kör ()print memberpage
  //Tips kolla på övn webbshop, + behandla ls som databas
-    showUserMessage.innerHTML = "Please create a username and password.";
-    inputPassWord.style.display ="block";
-    inputUserName.style.display ="block";
-    labelPassWord.style.display ="block";
-    labelUserName.style.display ="block";
+    showUserMessage.innerHTML = "Please create a username and password. ";
+    inputPassWord.style.display ="none";
+    inputUserName.style.display ="none";
+    labelPassWord.style.display ="none";
+    labelUserName.style.display ="none";
     logInBtn.style.display = "none";
     newUserBtn.style.display = "none";
+    //skapa och skriv ut nya input formulär
+    let newlabelUserNameLabel = document.createElement("label"); //Labels visas inte?
+    showUserMessage.appendChild(newlabelUserNameLabel);
+    let newinputPassWordInput = document.createElement("input");
+    showUserMessage.appendChild(newinputPassWordInput);
+    let newlabepassWordLabel = document.createElement("label"); //Labels visas inte?
+    showUserMessage.appendChild(newlabepassWordLabel);
+    let newlabelUserNameInput = document.createElement("input");
+    showUserMessage.appendChild(newlabelUserNameInput);
+    
+
     //skapa och skriv ut en spara ny användare- knapp
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerText = "Save"
