@@ -25,7 +25,14 @@ logInBtn.addEventListener("click", () =>  {
     //localStorage.setItem("passWord", passWord);  
     let userName = inputUserName.value; //KVAR!? koppla ihop password också..
     localStorage.setItem("userName", userName); //skriver namnet på sidan men ..
+    /* if (användare stämmer) {
+        printMemberPage();
+    } else if {
+        printWrongPage ();
+    } else {
+        printMemberPage();*/
     printMemberPage();
+    
 });
 
 function printMemberPage () { 
@@ -64,13 +71,36 @@ function printHomePage () {
     newUserBtn.style.display = "block";
 }
 
-//KVAR!? function om felaktigt lösen () print....
+function printWrongPage () {
+    //KVAR!? function om felaktigt lösen () print....
+    showUserMessage.innerHTML = "Sorry, ivalid user- and or password!";
+    logInBtn.style.display = "block";
+    inputPassWord.style.display ="block";
+    inputUserName.style.display ="block";
+    labelPassWord.style.display ="block";
+    labelUserName.style.display ="block";
+    newUserBtn.style.display = "block";
+}
 
 newUserBtn.addEventListener("click", () =>  {
     //KVAR!? function om sign up btn () lägg till i ls och kör ()print memberpage
-}); //Tips kolla på övn webbshop, + behandla ls som databas
-
-
+ //Tips kolla på övn webbshop, + behandla ls som databas
+    showUserMessage.innerHTML = "Please create a username and password.";
+    inputPassWord.style.display ="block";
+    inputUserName.style.display ="block";
+    labelPassWord.style.display ="block";
+    labelUserName.style.display ="block";
+    logInBtn.style.display = "none";
+    newUserBtn.style.display = "none";
+    //skapa och skriv ut en spara ny användare- knapp
+    let saveNewUserButton = document.createElement("button");
+    saveNewUserButton.innerText = "Save me"
+    saveNewUserButton.addEventListener("click", () => {
+        //localStorage.removeItem("userName"); ska sparas till ls
+        printMemberPage(); //homepage..
+    });
+    showUserMessage.appendChild(saveNewUserButton);
+});
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 
