@@ -1,7 +1,7 @@
 Log in page
 
-Saved 
-usernames and passwords:
-janne         test
-zarina        lösen1
-mollan        lösen2
+Saved users:
+username:janne password:test
+username:zarina password:lösen1
+username:mollan password:lösen2
+

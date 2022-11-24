@@ -14,7 +14,7 @@ let users = [
 
     //setItem för att spara till LS, stringify?
 ]   
-//object arrow -HUR få med dom? Behöver de ha id? så kan skilja åt...prövar..
+//object arrow  Behöver de ha id? så kan skiljas åt...prövar..
 
 //5.Kolla om det finns ett sparat inlogg, från ls (if) true = visa inlogg, false = visa homepage.)
 //dvs om true kalla på printmemberpage om false kalla på printHomepage
