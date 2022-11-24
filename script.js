@@ -70,7 +70,10 @@ function printHomePage () {
 
 //KVAR!? function om felaktigt lösen () print....
 
-//KVAR!? function om sign up btn () lägg till i ls och kör ()print memberpage
+newUserBtn.addEventListener("click", () =>  {
+    //KVAR!? function om sign up btn () lägg till i ls och kör ()print memberpage
+});
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
