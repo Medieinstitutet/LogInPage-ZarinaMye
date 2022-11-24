@@ -13,6 +13,7 @@ let users = [
     {userName: "mollan", passWord: "lösen2"},
 ]  
 //object arrow -HUR få med dom? Behöver de ha id? så kan skilja åt...
+//Behöver de vara sparade i LS? (räcker inte find..?(ex bondalizer))
 
 
 //5.Kolla om det finns ett sparat inlogg, från ls (if) true = visa inlogg, false = visa homepage.)
