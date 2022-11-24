@@ -7,8 +7,12 @@ let showUserMessage = document.getElementById("showUserMessage")
 let labelPassWord = document.getElementById("labelPassWord")
 let labelUserName = document.getElementById("labelUserName")
 
-localStorage.setItem("userName", "janne"); // när janne finns hålls han inloggad hela tiden..??
-localStorage.setItem("passWord", "test");  //Tips kolla på början av film från idag!
+let users = [
+    {userName: "janne", passWord: "test"},
+    {userName: "zarina", passWord: "lösen1"},
+    {userName: "mollan", passWord: "lösen2"},
+]  
+//object arrow -HUR få med dom? Behöver de ha id? så kan skilja åt...
 
 
 //5.Kolla om det finns ett sparat inlogg, från ls (if) true = visa inlogg, false = visa homepage.)
@@ -23,16 +27,18 @@ logInBtn.addEventListener("click", () =>  {
     //2.fånga inskrivet namn o spara i ls =
     //let passWord = inputPassWord.value; //KVAR!? koppla ihop password också..FUNKAR inte!!
     //localStorage.setItem("passWord", passWord);  
-    let userName = inputUserName.value; //KVAR!? koppla ihop password också..
-    localStorage.setItem("userName", userName); //skriver namnet på sidan men ..
-    /* if (användare stämmer) {
-        printMemberPage();
-    } else if {
-        printWrongPage ();
-    } else {
-        printMemberPage();*/
-    printMemberPage();
+    //skriver namnet på sidan men ..
+    let userName = inputUserName.value; 
+    localStorage.setItem("userName", userName);
     
+    let user = users.find(user => user.userName === findUserName.value && user.passWord === findPassWord.value );
+    console.log("user", user); 
+
+    /* if (user(finns användaren)) {
+        printMemberPage();
+    } else  () {
+        printWrongPage ();
+    }  */
 });
 
 function printMemberPage () { 
@@ -49,7 +55,7 @@ function printMemberPage () {
     labelUserName.style.display ="none";
     newUserBtn.style.display = "none";
 
-    //6.skapa och skriv ut en log out knapp
+    //6.skapa och skriv ut en log out knapp (raderar värdet ur LS)
     let logOutButton = document.createElement("button");
     logOutButton.innerText = "Log out"
     logOutButton.addEventListener("click", () => {
@@ -94,7 +100,7 @@ newUserBtn.addEventListener("click", () =>  {
     newUserBtn.style.display = "none";
     //skapa och skriv ut en spara ny användare- knapp
     let saveNewUserButton = document.createElement("button");
-    saveNewUserButton.innerText = "Save me"
+    saveNewUserButton.innerText = "Save"
     saveNewUserButton.addEventListener("click", () => {
         //localStorage.removeItem("userName"); ska sparas till ls
         printMemberPage(); //homepage..
