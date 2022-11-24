@@ -1,11 +1,11 @@
 //1.
-let logInBtn = document.getElementById("logInBtn")
-let newUserBtn = document.getElementById("newUserBtn")
+const logInBtn = document.getElementById("logInBtn")
+const newUserBtn = document.getElementById("newUserBtn")
 let inputPassWord = document.getElementById("inputPassWord")
 let inputUserName = document.getElementById("inputUserName")
-let showUserMessage = document.getElementById("showUserMessage")
-let labelPassWord = document.getElementById("labelPassWord")
-let labelUserName = document.getElementById("labelUserName")
+const showUserMessage = document.getElementById("showUserMessage")
+const labelPassWord = document.getElementById("labelPassWord")
+const labelUserName = document.getElementById("labelUserName")
 
 let users = [
     {userName: "janne", passWord: "test"},
@@ -31,14 +31,17 @@ logInBtn.addEventListener("click", () =>  {
     let userName = inputUserName.value; 
     localStorage.setItem("userName", userName);
     
-    let user = users.find(user => user.userName === findUserName.value && user.passWord === findPassWord.value );
+    let user = users.find(user => user.userName === inputUserName.value && user.passWord === inputPassWord.value );
     console.log("user", user); 
-
-    /* if (user(finns användaren)) {
+/* 
+    if (user()) {
+        let userName = inputUserName.value; 
+        localStorage.setItem("userName", userName);
         printMemberPage();
     } else  () {
         printWrongPage ();
     }  */
+    printMemberPage();
 });
 
 function printMemberPage () { 
