@@ -7,21 +7,7 @@ let showUserMessage = document.getElementById("showUserMessage")
 let labelPassWord = document.getElementById("labelPassWord")
 let labelUserName = document.getElementById("labelUserName")
 
-
-/* if (localStorage.getItem("users")) {
-    console.log('user finns i LS');
-} else { 
-    let users = [
-        {id:1, userName:'janne', password:"test",},
-        {id:2, userName:'zarina', password: "lösen1",},
-        {id:3, userName:'mollan', password:"lösen2",},
-         //object arrow  Behöver de ha id? så kan skiljas åt...prövar..
-    ]   
-    localStorage.setItem("users", JSON.stringify(users));
-    console.log("user har skapats i LS");
-} */
-
-localStorage.setItem("userName", "janne");
+localStorage.setItem("userName", "janne"); // när janne finns hålls han inloggad hela tiden..??
 localStorage.setItem("passWord", "test");
 
 
