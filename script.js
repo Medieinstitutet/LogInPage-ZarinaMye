@@ -8,17 +8,24 @@ let labelPassWord = document.getElementById("labelPassWord")
 let labelUserName = document.getElementById("labelUserName")
 
 let users = [
-    {id:1, user:'janne', password:"test",},
-    {id:2, user:'zarina', password: "lösen1",},
-    {id:3, user:'mollan', password:"lösen2",},
-
-    //setItem för att spara till LS, stringify?
+    {id:1, userName:'janne', password:"test",},
+    {id:2, userName:'zarina', password: "lösen1",},
+    {id:3, userName:'mollan', password:"lösen2",},
+     //object arrow  Behöver de ha id? så kan skiljas åt...prövar..
+    
 ]   
-//object arrow  Behöver de ha id? så kan skiljas åt...prövar..
+
+//setItem för att spara till LS, stringify?
+if (localStorage.getItem("users")) {
+    console.log('user finns i LS');
+} else { 
+    localStorage.setItem("users", JSON.stringify(users));
+    console.log("user har skapats i LS");
+}
 
 //5.Kolla om det finns ett sparat inlogg, från ls (if) true = visa inlogg, false = visa homepage.)
 //dvs om true kalla på printmemberpage om false kalla på printHomepage
-if (localStorage.getItem("userName")) {
+if (localStorage.getItem("userName")) {  //users.userName?
     printMemberPage();
 } else {
     printHomePage();
