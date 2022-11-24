@@ -21,24 +21,24 @@ let labelUserName = document.getElementById("labelUserName")
     console.log("user har skapats i LS");
 } */
 
-/* localStorage.setItem("userName", "janne");
+localStorage.setItem("userName", "janne");
 localStorage.setItem("passWord", "test");
- */
+
 
 //5.Kolla om det finns ett sparat inlogg, från ls (if) true = visa inlogg, false = visa homepage.)
 //dvs om true kalla på printmemberpage om false kalla på printHomepage
-if (localStorage.getItem("userName")) {  
+if (localStorage.getItem("userName")) {
+    printMemberPage();
 } else {
     printHomePage();
 }
 
 logInBtn.addEventListener("click", () =>  {
     //2.fånga inskrivet namn o spara i ls =
-    let userName = inputUserName.value;
     //let passWord = inputPassWord.value; //KVAR!? koppla ihop password också..FUNKAR inte!!
-    localStorage.setItem("userName", "janne");
     //localStorage.setItem("passWord", passWord);  
-
+    let userName = inputUserName.value; //KVAR!? koppla ihop password också..
+    localStorage.setItem("userName", userName);
     printMemberPage();
 });
 
