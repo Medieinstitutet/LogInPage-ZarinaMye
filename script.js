@@ -7,12 +7,14 @@ let showUserMessage = document.getElementById("showUserMessage")
 let labelPassWord = document.getElementById("labelPassWord")
 let labelUserName = document.getElementById("labelUserName")
 
-/* let users = [
-    {userName: "janne", passWord: "test"},
-    {userName: "zarina", passWord: "lösen1"},
-    {userName: "mollan", passWord: "lösen2"},
-]   */
-//object arrow -HUR få med dom? Behöver de ha id? så kan skilja åt...
+let users = [
+    {id:1, user:'janne', password:"test",},
+    {id:2, user:'zarina', password: "lösen1",},
+    {id:3, user:'mollan', password:"lösen2",},
+
+    //setItem för att spara till LS, stringify?
+]   
+//object arrow -HUR få med dom? Behöver de ha id? så kan skilja åt...prövar..
 
 //5.Kolla om det finns ett sparat inlogg, från ls (if) true = visa inlogg, false = visa homepage.)
 //dvs om true kalla på printmemberpage om false kalla på printHomepage
