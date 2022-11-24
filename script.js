@@ -38,7 +38,7 @@ if (localStorage.getItem("userName")) {
 logInBtn.addEventListener("click", () =>  {
     //2.fånga inskrivet namn o spara i ls =(ny användare )
     //(måste också gå att kolla om nått finns sparat i ls, typ mina användare)HUR?
-    let userName = inputPassWord.value;
+    let userName = inputUserName.value;
     localStorage.setItem("userName", userName);
     printMemberPage();
 
