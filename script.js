@@ -13,7 +13,7 @@ let users = [
     {userName: "zarina", passWord: "password"},
     {userName: "Offie", passWord: "cucumber4Ever"},
     {userName: "MollanThePinscher", passWord: "passWord123"},
-    {userName: "Pluto", passWord: "H8.cats"},
+    {userName: "Pluto", passWord: "H8piff&puff"},
     {userName: "Lajka", passWord: "Sputnik2"},
 ]  
 
