@@ -2,9 +2,10 @@ const logInBtn = document.getElementById("logInBtn")
 const newUserBtn = document.getElementById("newUserBtn")
 const inputPassWord = document.getElementById("inputPassWord")
 const inputUserName = document.getElementById("inputUserName")
-const showUserMessage = document.getElementById("showUserMessage")
 const labelPassWord = document.getElementById("labelPassWord")
 const labelUserName = document.getElementById("labelUserName")
+const loginContanier = document.getElementById("loginContanier")
+const showUserMessage = document.getElementById("showUserMessage")
 const changeDogPic = document.getElementById("changeDogPic");
 
 let users = [
@@ -40,6 +41,7 @@ logInBtn.addEventListener("click", () =>  {
 
 function printMemberPage () { 
     //hämta namn från ls o skriv ut homepage om inloggad finns
+    //loginContanier.innerHTML = ""; för att tömma sidan
     let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
     logInBtn.style.display = "none";
@@ -100,7 +102,7 @@ function printWrongPage () {
 
 newUserBtn.addEventListener("click", () =>  {
     //KVAR!? function om sign up btn () lägg till i ls och kör ()print memberpage
- //Tips kolla på övn webbshop, + behandla ls som databas
+    //Tips kolla på övn webbshop + behandla ls som databas
     showUserMessage.innerHTML = "Please create a username and password: ";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
