@@ -10,8 +10,8 @@ const changeDogPic = document.getElementById("changeDogPic");
 let users = [
     {userName: "janne", passWord: "test"},
     {userName: "zarina", passWord: "lösen1"},
-    {userName: "moLLan", passWord: "lösen.2"},
     {userName: "Offie", passWord: "123Gurka"},
+    {userName: "MollanThePinscher", passWord: "lösen.2"},
 ]  
 
 if (localStorage.getItem("userName")) { 
@@ -45,11 +45,11 @@ function printMemberPage () {
     labelUserName.style.display ="none";
     newUserBtn.style.display = "none";
     let image = document.getElementById("changeDogPic");
-    if (image.src.match("member")) {
-        image.src = "./img/home.png";
+    if (image.src.match("dogMember")) {
+        image.src = "./img/dogHome.png";
     }
     else {
-        image.src = "./img/member.png";
+        image.src = "./img/dogMember.png";
     }
     // log out knapp = raderar värdet ur LS
     let logOutButton = document.createElement("button");
@@ -58,11 +58,11 @@ function printMemberPage () {
         localStorage.removeItem("userName");
         printHomePage();
         let image = document.getElementById("changeDogPic");
-        if (image.src.match("member")) {
-          image.src = "./img/home.png";
+        if (image.src.match("dogMember")) {
+          image.src = "./img/dogHome.png";
         }
         else {
-          image.src = "./img/member.png";
+          image.src = "./img/dogMember.png";
         }
     });
     showUserMessage.appendChild(logOutButton);
