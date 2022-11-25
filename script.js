@@ -29,7 +29,6 @@ logInBtn.addEventListener("click", () =>  {
         let userName = inputUserName.value; 
         localStorage.setItem("userName", userName);
         printMemberPage();
-        //changeDogPic ();
     } else  {
         printWrongPage ();
     }  
@@ -52,7 +51,6 @@ function printMemberPage () {
     else {
         image.src = "./img/member.png";
     }
-
     // log out knapp = raderar värdet ur LS
     let logOutButton = document.createElement("button");
     logOutButton.innerText = "Log out"

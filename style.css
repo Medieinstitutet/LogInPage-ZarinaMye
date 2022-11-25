@@ -18,7 +18,8 @@ h1 {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 3rem;
-    margin-left: 40px;
+    margin-left: 45px;
+    margin-top: 40px;
 }
 #labelUserName {
     position: absolute;
@@ -59,15 +60,15 @@ h1 {
     font-size: large;
 }
 img {
-    width: 110px;
+    width: 130px;
     height: auto;
     position: absolute;
-    bottom: 20px;
-    right: 30px;
+    bottom: 30px;
+    right: 57px;
 }
 footer {
   background-color: rgb(1, 28, 17, 0.85);
-  margin-top: 290px;
+  margin-top: 292px;
   height: 100px;
   display: flex;
   border-radius: 5px 5px 25px 25px;
