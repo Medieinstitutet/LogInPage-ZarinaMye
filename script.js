@@ -9,9 +9,11 @@ const changeDogPic = document.getElementById("changeDogPic");
 
 let users = [
     {userName: "janne", passWord: "test"},
-    {userName: "zarina", passWord: "passWord.1"},
+    {userName: "zarina", passWord: "password"},
     {userName: "Offie", passWord: "cucumber4Ever"},
-    {userName: "MollanThePinscher", passWord: "H8.cats"},
+    {userName: "MollanThePinscher", passWord: "passWord123"},
+    {userName: "Pluto", passWord: "H8.cats"},
+    {userName: "Lajka", passWord: "Sputnik2"},
 ]  
 
 if (localStorage.getItem("userName")) { 
