@@ -31,7 +31,6 @@ logInBtn.addEventListener("click", () =>  {
     } else  {
         printWrongPage ();
     }  
-    
 });
 
 function printMemberPage () { 
