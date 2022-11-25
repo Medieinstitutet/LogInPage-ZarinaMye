@@ -1,15 +1,15 @@
-[ ] koppla password till inlogget
+[x] koppla password till inlogget
 [x] när inloggad är inloggad- ta bort inlogg och byt ut mot log ut knapp
 [x] när inloggad ska "hello! if you are a member....(välkomstvy)"tas bort
 [x] när inloggad är välkomen + namn ok ? som nu... FRÅGA !
 [x] inlogget ska sparas i local storage, dvs sparas i webbläsaren
 [x] logga ut 
-[ ] sparade användare ska finnas -janne  test
-[ ] felmeddelande visas vid felaktiga inlogg 
+[x] sparade användare ska finnas -janne  test
+[x] felmeddelande visas vid felaktiga inlogg 
 VG 
-[ ] fler användare, doc i readme
+[x] fler användare, doc i readme
 [ ] ny användare ska läggas till
 
 
 
-[ ] styla/css sidan 
+[x] styla/css sidan 
