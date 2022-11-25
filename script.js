@@ -15,7 +15,6 @@ let users = [
 //object arrow -HUR få med dom? Behöver de ha id? så kan skilja åt...
 //Behöver de vara sparade i LS? (räcker inte find..?(ex bondalizer))
 
-
 //5.Kolla om det finns ett sparat inlogg, från ls (if) true = visa inlogg, false = visa homepage.)
 //dvs om true kalla på printmemberpage om false kalla på printHomepage
 if (localStorage.getItem("userName")) { //för att det tas här..vill eg bara kolla om nån är inloggad..
@@ -29,20 +28,20 @@ logInBtn.addEventListener("click", () =>  {
     //let passWord = inputPassWord.value; //KVAR!? koppla ihop password också..FUNKAR inte!!
     //localStorage.setItem("passWord", passWord);  
     //skriver namnet på sidan men ..
-    let userName = inputUserName.value; 
-    localStorage.setItem("userName", userName);
+    //let userName = inputUserName.value; 
+    //localStorage.setItem("userName", userName);
     
     let user = users.find(user => user.userName === inputUserName.value && user.passWord === inputPassWord.value );
     console.log("user", user); 
-/* 
-    if (user()) {
+
+    if (user) {
         let userName = inputUserName.value; 
         localStorage.setItem("userName", userName);
         printMemberPage();
-    } else  () {
+    } else  {
         printWrongPage ();
-    }  */
-    printMemberPage();
+    }  
+    
 });
 
 function printMemberPage () { 
