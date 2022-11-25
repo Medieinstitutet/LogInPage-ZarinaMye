@@ -5,7 +5,7 @@ body {
     background-image: url(../img/background.jpg);
 }
 header {
-  background-color: rgb(1, 28, 17, 0.7);
+  background-color: rgb(1, 28, 17, 0.85);
   margin-top:10px;
   height: 165px;
   display: grid;
@@ -18,7 +18,7 @@ h1 {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 3rem;
-    margin-left: 35px;
+    margin-left: 40px;
 }
 #labelUserName {
     position: absolute;
@@ -49,27 +49,27 @@ h1 {
 }
 #newUserBtn {
     position: absolute;
-    left: 150px;
-    top: 250px;
+    left: 650px;
+    top: 270px;
 }
 #showUserMessage {
     position: absolute;
-    left: 150px;
-    top: 200px;
+    left: 220px;
+    top: 220px;
     font-size: large;
 }
 img {
     width: 100px;
     height: auto;
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 20px;
+    right: 30px;
 }
 footer {
-  background-color: rgb(1, 28, 17, 0.7);
-  margin-top: 340px;
-  display: grid;
-  grid-auto-flow: row;
+  background-color: rgb(1, 28, 17, 0.85);
+  margin-top: 290px;
+  height: 100px;
+  display: flex;
   border-radius: 5px 5px 25px 25px;
   box-shadow: 3px 3px 5px rgb(167, 163, 163, 0.5); 
   color: white;
@@ -77,10 +77,3 @@ footer {
   font-weight: 500;
   font-size: 1rem;
 }
-
-
-
-
-  
-  
-
