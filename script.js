@@ -117,26 +117,3 @@ newUserBtn.addEventListener("click", () =>  {
     });
     showUserMessage.appendChild(cancelButton);
 });
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 
-
-
-// find för att leta i object arrow (mina användare)
-/* logInBtn.addEventListener("click", () => {
-
-    let user = users.find(user => user.userName === findUserName.value && user.passWord === findPassWord.value );
-    console.log("user", user);
- 
-    if (user) {
-        printUserMessage.innertext = "Welcome" + " " + user.userName + " "+ "to your member page!";
-    } else {
-    printUserMessage.innerHTML = "Ivalid user- and or password!";
-   }
-}); */
-
-
-///////////////////////////////////////////////////////////////////////
-
-
- 
