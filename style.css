@@ -23,29 +23,29 @@ h1 {
 #labelUserName {
     position: absolute;
     color: white;
-    right: 150px;
-    top: 35px;
+    right: 185px;
+    top: 30px;
 }
 #inputUserName {
     position: absolute;
     right: 100px;
-    top: 55px;
+    top: 50px;
 }
 #labelPassWord {
     position: absolute;
     color: white;
-    right: 150px;
-    top: 85px;
+    right: 185px;
+    top: 80px;
 }
 #inputPassWord {
     position: absolute;
     right: 100px;
-    top: 105px;
+    top: 100px;
 }
 #logInBtn {
     position: absolute;
-    right: 165px;
-    top: 145px;
+    right: 100px;
+    top: 135px;
 }
 #newUserBtn {
     position: absolute;
@@ -59,7 +59,7 @@ h1 {
     font-size: large;
 }
 img {
-    width: 100px;
+    width: 110px;
     height: auto;
     position: absolute;
     bottom: 20px;

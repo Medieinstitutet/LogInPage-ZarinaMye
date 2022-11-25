@@ -5,6 +5,7 @@ const inputUserName = document.getElementById("inputUserName")
 const showUserMessage = document.getElementById("showUserMessage")
 const labelPassWord = document.getElementById("labelPassWord")
 const labelUserName = document.getElementById("labelUserName")
+const changeDogPic = document.getElementById("changeDogPic");
 
 let users = [
     {userName: "janne", passWord: "test"},
@@ -28,6 +29,7 @@ logInBtn.addEventListener("click", () =>  {
         let userName = inputUserName.value; 
         localStorage.setItem("userName", userName);
         printMemberPage();
+        //changeDogPic ();
     } else  {
         printWrongPage ();
     }  
@@ -43,6 +45,13 @@ function printMemberPage () {
     labelPassWord.style.display ="none";
     labelUserName.style.display ="none";
     newUserBtn.style.display = "none";
+    let image = document.getElementById("changeDogPic");
+    if (image.src.match("member")) {
+        image.src = "./img/home.png";
+    }
+    else {
+        image.src = "./img/member.png";
+    }
 
     // log out knapp = raderar värdet ur LS
     let logOutButton = document.createElement("button");
@@ -50,6 +59,13 @@ function printMemberPage () {
     logOutButton.addEventListener("click", () => {
         localStorage.removeItem("userName");
         printHomePage();
+        let image = document.getElementById("changeDogPic");
+        if (image.src.match("member")) {
+          image.src = "./img/home.png";
+        }
+        else {
+          image.src = "./img/member.png";
+        }
     });
     showUserMessage.appendChild(logOutButton);
 }
