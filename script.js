@@ -1,8 +1,8 @@
 //1.
 const logInBtn = document.getElementById("logInBtn")
 const newUserBtn = document.getElementById("newUserBtn")
-let inputPassWord = document.getElementById("inputPassWord")
-let inputUserName = document.getElementById("inputUserName")
+const inputPassWord = document.getElementById("inputPassWord")
+const inputUserName = document.getElementById("inputUserName")
 const showUserMessage = document.getElementById("showUserMessage")
 const labelPassWord = document.getElementById("labelPassWord")
 const labelUserName = document.getElementById("labelUserName")
@@ -10,10 +10,10 @@ const labelUserName = document.getElementById("labelUserName")
 let users = [
     {userName: "janne", passWord: "test"},
     {userName: "zarina", passWord: "lösen1"},
-    {userName: "mollan", passWord: "lösen2"},
+    {userName: "moLLan", passWord: "lösen.2"},
+    {userName: "Offie", passWord: "123Gurka"},
 ]  
-//object arrow -HUR få med dom? Behöver de ha id? så kan skilja åt...
-//Behöver de vara sparade i LS? (räcker inte find..?(ex bondalizer))
+//object arrow 
 
 //5.Kolla om det finns ett sparat inlogg, från ls (if) true = visa inlogg, false = visa homepage.)
 //dvs om true kalla på printmemberpage om false kalla på printHomepage
@@ -24,13 +24,7 @@ if (localStorage.getItem("userName")) { //för att det tas här..vill eg bara ko
 }
 
 logInBtn.addEventListener("click", () =>  {
-    //2.fånga inskrivet namn o spara i ls =
-    //let passWord = inputPassWord.value; //KVAR!? koppla ihop password också..FUNKAR inte!!
-    //localStorage.setItem("passWord", passWord);  
-    //skriver namnet på sidan men ..
-    //let userName = inputUserName.value; 
-    //localStorage.setItem("userName", userName);
-    
+    //If user = true, spara i ls     
     let user = users.find(user => user.userName === inputUserName.value && user.passWord === inputPassWord.value );
     console.log("user", user); 
 
@@ -50,7 +44,6 @@ function printMemberPage () {
     let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Welcome" + " " + userName + " " + "to your member page! ";
 
-    //7. Ta  bort log in knapp och inputfält
     logInBtn.style.display = "none";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
@@ -58,7 +51,7 @@ function printMemberPage () {
     labelUserName.style.display ="none";
     newUserBtn.style.display = "none";
 
-    //6.skapa och skriv ut en log out knapp (raderar värdet ur LS)
+    // log out knapp = raderar värdet ur LS
     let logOutButton = document.createElement("button");
     logOutButton.innerText = "Log out"
     logOutButton.addEventListener("click", () => {
@@ -69,9 +62,7 @@ function printMemberPage () {
 }
 
 function printHomePage () {
-    //4.skriv ut att det inte finns ett namn sparat i ls 
-    showUserMessage.innerHTML = "Hello! <br> If you are a member you know what to do, if not please sign up.";  //=startsidan
-    // visa sida med inlogg + 2st inputfält 
+    showUserMessage.innerHTML = "Hello! <br> If you are a member you know what to do, if not please sign up.";  
     logInBtn.style.display = "block";
     inputPassWord.style.display ="block";
     inputUserName.style.display ="block";
@@ -81,7 +72,6 @@ function printHomePage () {
 }
 
 function printWrongPage () {
-    //KVAR!? function om felaktigt lösen () print....
     showUserMessage.innerHTML = "Sorry, ivalid user- and or password! ";
     logInBtn.style.display = "block";
     inputPassWord.style.display ="block";
@@ -111,15 +101,21 @@ newUserBtn.addEventListener("click", () =>  {
     let newlabelUserNameInput = document.createElement("input");
     showUserMessage.appendChild(newlabelUserNameInput);
     
-
     //skapa och skriv ut en spara ny användare- knapp
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerText = "Save"
     saveNewUserButton.addEventListener("click", () => {
         //localStorage.removeItem("userName"); ska sparas till ls
-        printMemberPage(); //homepage..
+        //printMemberPage(); //homepage..
     });
     showUserMessage.appendChild(saveNewUserButton);
+
+    let cancelButton = document.createElement("button");
+    cancelButton.innerText = "Cancel"
+    cancelButton.addEventListener("click", () => {
+        printHomePage(); 
+    });
+    showUserMessage.appendChild(cancelButton);
 });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
