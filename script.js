@@ -36,7 +36,7 @@ logInBtn.addEventListener("click", () =>  {
 function printMemberPage () { 
     //hämta namn från ls o skriv ut homepage om inloggad finns
     let userName = localStorage.getItem("userName");
-    showUserMessage.innerText = "Welcome" + " " + userName + " " + "to your member page! ";
+    showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
     logInBtn.style.display = "none";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
@@ -71,13 +71,19 @@ function printWrongPage () {
     inputUserName.style.display ="block";
     labelPassWord.style.display ="block";
     labelUserName.style.display ="block";
-    newUserBtn.style.display = "block";
+    newUserBtn.style.display = "none";
+    let cancelButton = document.createElement("button");
+    cancelButton.innerText = "Cancel"
+    cancelButton.addEventListener("click", () => {
+        printHomePage(); 
+    });
+    showUserMessage.appendChild(cancelButton);
 }
 
 newUserBtn.addEventListener("click", () =>  {
     //KVAR!? function om sign up btn () lägg till i ls och kör ()print memberpage
  //Tips kolla på övn webbshop, + behandla ls som databas
-    showUserMessage.innerHTML = "Please create a username and password. ";
+    showUserMessage.innerHTML = "Please create a username and password: ";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
     labelPassWord.style.display ="none";

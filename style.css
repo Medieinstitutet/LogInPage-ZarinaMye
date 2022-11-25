@@ -23,28 +23,28 @@ h1 {
     position: absolute;
     color: white;
     right: 150px;
-    top: 40px;
+    top: 35px;
 }
 #inputUserName {
     position: absolute;
     right: 100px;
-    top: 60px;
+    top: 55px;
 }
 #labelPassWord {
     position: absolute;
     color: white;
     right: 150px;
-    top: 90px;
+    top: 85px;
 }
 #inputPassWord {
     position: absolute;
     right: 100px;
-    top: 110px;
+    top: 105px;
 }
 #logInBtn {
     position: absolute;
     right: 165px;
-    top: 150px;
+    top: 145px;
 }
 #newUserBtn {
     position: absolute;
