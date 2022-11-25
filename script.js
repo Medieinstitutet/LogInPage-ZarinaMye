@@ -16,6 +16,8 @@ let users = [
     {userName: "Lajka", passWord: "Sputnik2"},
 ]  
 
+// från webbshop:  container.innerHTML = ""; töm, sätt div runt så kan enkelt tömma knappar
+
 if (localStorage.getItem("userName")) { 
     printMemberPage();
 } else {
@@ -25,7 +27,7 @@ if (localStorage.getItem("userName")) {
 logInBtn.addEventListener("click", () =>  {
     //If user = true, spara i ls     
     let user = users.find(user => user.userName === inputUserName.value && user.passWord === inputPassWord.value );
-    console.log("user", user); 
+    console.log("user", user);                ///user.userId om id
 
     if (user) {
         let userName = inputUserName.value; 
