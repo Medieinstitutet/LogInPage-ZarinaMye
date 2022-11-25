@@ -1,4 +1,3 @@
-//1.
 const logInBtn = document.getElementById("logInBtn")
 const newUserBtn = document.getElementById("newUserBtn")
 const inputPassWord = document.getElementById("inputPassWord")
@@ -13,11 +12,8 @@ let users = [
     {userName: "moLLan", passWord: "lösen.2"},
     {userName: "Offie", passWord: "123Gurka"},
 ]  
-//object arrow 
 
-//5.Kolla om det finns ett sparat inlogg, från ls (if) true = visa inlogg, false = visa homepage.)
-//dvs om true kalla på printmemberpage om false kalla på printHomepage
-if (localStorage.getItem("userName")) { //för att det tas här..vill eg bara kolla om nån är inloggad..
+if (localStorage.getItem("userName")) { 
     printMemberPage();
 } else {
     printHomePage();
@@ -39,11 +35,9 @@ logInBtn.addEventListener("click", () =>  {
 });
 
 function printMemberPage () { 
-    //(render-funktion dvs skriver över gammalt) 
-    //3.hämta namn från ls o skriv ut homepage om inloggad finns
+    //hämta namn från ls o skriv ut homepage om inloggad finns
     let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Welcome" + " " + userName + " " + "to your member page! ";
-
     logInBtn.style.display = "none";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
