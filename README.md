@@ -1,8 +1,8 @@
 Log in page
 
 Saved users:
-username:janne  password:test
-username:zarina password:lösen1
-username:Offie  passWord:123Gurka
-username:MollanThePinscher password:lösen.2
+userName: janne             passWord: test
+userName: zarina            passWord: passWord.1
+userName: Offie             passWord: cucumber4Ever
+userName: MollanThePinscher passWord: H8.cats
 
