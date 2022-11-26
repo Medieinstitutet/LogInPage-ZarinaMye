@@ -17,7 +17,7 @@ if (localStorage.getItem("loggedIn")) {
     printHomePage(); // funkar
 }
 
-if (localStorage.getItem("users")) { 
+if (localStorage.getItem("users")) {  //funkar?
 } else { 
     let users = [
         {userId:1, userName: "janne", passWord: "test"},
@@ -44,7 +44,7 @@ logInBtn.addEventListener("click", () =>  {
         printMemberPage();
     }  
     else  {
-        printWrongPage ();
+        printWrongPage ();  //funkar
     }  
 });
 
