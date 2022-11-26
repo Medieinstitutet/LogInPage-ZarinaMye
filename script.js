@@ -1,11 +1,11 @@
-const logInBtn = document.getElementById("logInBtn")
-const newUserBtn = document.getElementById("newUserBtn")
-const inputPassWord = document.getElementById("inputPassWord")
-const inputUserName = document.getElementById("inputUserName")
-const labelPassWord = document.getElementById("labelPassWord")
-const labelUserName = document.getElementById("labelUserName")
-const loginContanier = document.getElementById("loginContanier")
-const showUserMessage = document.getElementById("showUserMessage")
+const logInBtn = document.getElementById("logInBtn");
+const newUserBtn = document.getElementById("newUserBtn");
+const inputPassWord = document.getElementById("inputPassWord");
+const inputUserName = document.getElementById("inputUserName");
+const labelPassWord = document.getElementById("labelPassWord");
+const labelUserName = document.getElementById("labelUserName");
+const loginContanier = document.getElementById("loginContanier");
+const showUserMessage = document.getElementById("showUserMessage");
 const changeDogPic = document.getElementById("changeDogPic");
 
 let users = [
@@ -15,13 +15,12 @@ let users = [
     {userId:4, userName: "MollanThePinscher", passWord: "1234"},
     {userId:5, userName: "Pluto", passWord: "H8piff&puff"},
     {userId:6, userName: "Lajka", passWord: "Sputnik2"},
-]  // id om sparas i ls för att veta vem o kunna lägga till ny
-   //localStorage.setItem("nyckel:(userName/id)", JSON.stringify(nyckel)); 
+]
 
 if (localStorage.getItem("userName")) { 
     printMemberPage();
 } else {
-    //localStorage.setItem("users", JSON.stringify(users));
+    
     printHomePage();
 }
 
@@ -35,7 +34,10 @@ logInBtn.addEventListener("click", () =>  {
         localStorage.setItem("userName", userName);
         //localStorage.setItem("users", JSON.stringify(users));
         printMemberPage();
-    } else  {
+    } else if { //de nytillgada inloggade som måste hämtas 
+
+    }
+    else  {
         printWrongPage ();
     }  
 });
@@ -43,7 +45,7 @@ logInBtn.addEventListener("click", () =>  {
 function printMemberPage () { 
     //hämta namn från ls o skriv ut homepage om inloggad finns
     //(loginContanier.innerHTML = ""; för att tömma sidan)
-    let userName = localStorage.getItem("userName");
+    let userName = localStorage.getItem("userName");//stringyfy username?userID?
     showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
     logInBtn.style.display = "none";
     inputPassWord.style.display ="none";
