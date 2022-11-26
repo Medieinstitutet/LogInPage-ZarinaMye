@@ -55,9 +55,8 @@ checkLogIn = () => {
         memberId = member.userId - 1;
         //console.log(userid);
         return true;
-    }     ///själva inloggsverifieringen        
+    }          
 }
-
 
 ////////////////////////
 function printMemberPage () { 
@@ -149,9 +148,6 @@ newUserBtn.addEventListener("click", () =>  {
     saveNewUserButton.innerHTML = "Save"
     saveNewUserButton.addEventListener("click", () => {
       //KVAR!! att spara ny användare
-      //localStorage.setItem("userName", JSON.stringify(getuserName)); sparas till ls
-      //getuserName.push("newUserName")
-      //printMemberPage(); 
        let users = JSON.parse(localStorage.getItem("users"));
        const alreadyMember = users.some(userName => userName.user === newUserNameInput.value);
        if (alreadyMember == false) {
@@ -164,7 +160,8 @@ newUserBtn.addEventListener("click", () =>  {
             //pusha 
             users.push(newMember);
             localStorage.setItem("users", JSON.stringify(users));
-            printMemberPage(); 
+            //printMemberPage(); 
+            ///kanske kontrollera lösen, o koppla till inlogg så ls vet, nu kopplar knapp direkt
         }
     });
     showUserMessage.appendChild(saveNewUserButton);
