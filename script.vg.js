@@ -52,7 +52,7 @@ checkLogIn = () => {
     const users = JSON.parse(localStorage.getItem("users"));
     const member = users.find(userName => {return userName.user === inputUserName.value});
     if (member.passWord === inputPassWord.value) {  //nått fel med passWord!?
-        memberId = member.userId - 1;
+        memberId = member.userId --;//-1
         //console.log(userid);
         return true;
     }          
@@ -153,7 +153,7 @@ newUserBtn.addEventListener("click", () =>  {
        if (alreadyMember == false) {
             ///skapa ny användare 
             let newMember = {
-            userId: users.length + 1,
+            userId: users.length ++,///+1
             userName: newUserNameInput.value,
             passWord: newPassWordInput.value,
             };
