@@ -17,7 +17,7 @@ if (localStorage.getItem("loggedIn")) {
     printHomePage(); // funkar
 }
 
-if (localStorage.getItem("users")) {  //funkar?
+if (localStorage.getItem("users")) { 
 } else { 
     let users = [
         {userId:1, userName: "janne", passWord: "test"},
@@ -44,7 +44,7 @@ logInBtn.addEventListener("click", () =>  {
         printMemberPage();
     }  
     else  {
-        printWrongPage ();  //funkar
+        printWrongPage ();
     }  
 });
 
@@ -133,16 +133,16 @@ newUserBtn.addEventListener("click", () =>  {
     logInBtn.style.display = "none";
     newUserBtn.style.display = "none";
     //skapa och skriv ut nya input formulär
-    let newlabelUserNameLabel = document.createElement("label"); 
-    newlabelUserNameLabel.innerHTML = "username: "
-    showUserMessage.appendChild(newlabelUserNameLabel);
-    let newinputPassWordInput = document.createElement("input");
-    showUserMessage.appendChild(newinputPassWordInput);
-    let newlabepassWordLabel = document.createElement("label"); 
-    newlabepassWordLabel.innerHTML = " and pasword: "
-    showUserMessage.appendChild(newlabepassWordLabel);
-    let newlabelUserNameInput = document.createElement("input");
-    showUserMessage.appendChild(newlabelUserNameInput);
+    let newUserNameLabel = document.createElement("label"); 
+    newUserNameLabel.innerHTML = "username: "
+    showUserMessage.appendChild(newUserNameLabel);
+    let newUserNameInput = document.createElement("input");
+    showUserMessage.appendChild(newUserNameInput);
+    let newPassWordLabel = document.createElement("label"); 
+    newPassWordLabel.innerHTML = " and pasword: "
+    showUserMessage.appendChild(newPassWordLabel);
+    let newPassWordInput = document.createElement("input");
+    showUserMessage.appendChild(newPassWordInput);
     
     //skapa och skriv ut en spara ny användare- knapp
     let saveNewUserButton = document.createElement("button");
@@ -153,13 +153,13 @@ newUserBtn.addEventListener("click", () =>  {
       //getuserName.push("newUserName")
       //printMemberPage(); 
        let users = JSON.parse(localStorage.getItem("users"));
-       const alreadyMember = users.some(userName => userName.user === newUserName.value);
+       const alreadyMember = users.some(userName => userName.user === newUserNameInput.value);
        if (alreadyMember == false) {
             ///skapa ny användare 
             let newMember = {
             userId: users.length + 1,
-            userName: newUserName.value,
-            passWord: newPassWord.value,
+            userName: newUserNameInput.value,
+            passWord: newPassWordInput.value,
             };
             //pusha 
             users.push(newMember);
