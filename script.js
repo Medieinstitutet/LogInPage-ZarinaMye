@@ -9,18 +9,19 @@ const showUserMessage = document.getElementById("showUserMessage")
 const changeDogPic = document.getElementById("changeDogPic");
 
 let users = [
-    {userName: "janne", passWord: "test"},
-    {userName: "Scooby-Doo", passWord: "snacks"},
-    {userName: "Offie", passWord: "cucumber4Ever"},
-    {userName: "MollanThePinscher", passWord: "1234"},
-    {userName: "Pluto", passWord: "H8piff&puff"},
-    {userName: "Lajka", passWord: "Sputnik2"},
+    {userId:1, userName: "janne", passWord: "test"},
+    {userId:2, userName: "Scooby-Doo", passWord: "snacks"},
+    {userId:3, userName: "Offie", passWord: "cucumber4Ever"},
+    {userId:4, userName: "MollanThePinscher", passWord: "1234"},
+    {userId:5, userName: "Pluto", passWord: "H8piff&puff"},
+    {userId:6, userName: "Lajka", passWord: "Sputnik2"},
 ]  // id om sparas i ls för att veta vem o kunna lägga till ny
    //localStorage.setItem("nyckel:(userName/id)", JSON.stringify(nyckel)); 
 
 if (localStorage.getItem("userName")) { 
     printMemberPage();
 } else {
+    //localStorage.setItem("users", JSON.stringify(users));
     printHomePage();
 }
 
@@ -32,6 +33,7 @@ logInBtn.addEventListener("click", () =>  {
     if (user) {
         let userName = inputUserName.value; 
         localStorage.setItem("userName", userName);
+        //localStorage.setItem("users", JSON.stringify(users));
         printMemberPage();
     } else  {
         printWrongPage ();
