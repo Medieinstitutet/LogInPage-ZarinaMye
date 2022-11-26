@@ -160,8 +160,9 @@ newUserBtn.addEventListener("click", () =>  {
             //pusha 
             users.push(newMember);
             localStorage.setItem("users", JSON.stringify(users));
-            //printMemberPage(); 
-            ///kanske kontrollera lösen, o koppla till inlogg så ls vet, nu kopplar knapp direkt
+            {alert("Your username and password have been saved, please log in")};
+            printHomePage(); 
+            ///kanske kontrollera lösen, nu kopplar knapp direkt...
         }
     });
     showUserMessage.appendChild(saveNewUserButton);
