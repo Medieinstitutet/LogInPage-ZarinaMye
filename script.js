@@ -20,7 +20,6 @@ let users = [
 if (localStorage.getItem("userName")) { 
     printMemberPage();
 } else {
-    
     printHomePage();
 }
 
@@ -34,8 +33,6 @@ logInBtn.addEventListener("click", () =>  {
         localStorage.setItem("userName", userName);
         //localStorage.setItem("users", JSON.stringify(users));
         printMemberPage();
-    } else if { //de nytillgada inloggade som måste hämtas 
-
     }
     else  {
         printWrongPage ();
