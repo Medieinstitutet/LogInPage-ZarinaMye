@@ -50,7 +50,7 @@ logInBtn.addEventListener("click", () =>  {
 
 checkLogIn = () => {
     const users = JSON.parse(localStorage.getItem("users"));
-    const member = users.find(userName => {return userName.user === inputUserName.value});
+    const member = users.find(userName => {return userName.userName === inputUserName.value});
     if (member.passWord === inputPassWord.value) {  //nått fel med passWord!?
         memberId = member.userId --;//-1
         //console.log(userid);
@@ -63,7 +63,7 @@ function printMemberPage () {
     //hämta namn från ls o skriv ut homepage om inloggad finns
     let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
-    logInBtn.style.display = "none";
+    logInBtn.style.display = "none";                        ///id alla ej janne!!
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
     labelPassWord.style.display ="none";
@@ -149,7 +149,7 @@ newUserBtn.addEventListener("click", () =>  {
     saveNewUserButton.addEventListener("click", () => {
       //KVAR!! att spara ny användare
        let users = JSON.parse(localStorage.getItem("users"));
-       const alreadyMember = users.some(userName => userName.user === newUserNameInput.value);
+       const alreadyMember = users.some(userName => userName.userName === newUserNameInput.value);
        if (alreadyMember == false) {
             ///skapa ny användare 
             let newMember = {
