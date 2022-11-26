@@ -10,14 +10,13 @@ const changeDogPic = document.getElementById("changeDogPic");
 
 let users = [
     {userName: "janne", passWord: "test"},
-    {userName: "zarina", passWord: "password"},
+    {userName: "Scooby-Doo", passWord: "snacks"},
     {userName: "Offie", passWord: "cucumber4Ever"},
-    {userName: "MollanThePinscher", passWord: "passWord123"},
+    {userName: "MollanThePinscher", passWord: "1234"},
     {userName: "Pluto", passWord: "H8piff&puff"},
     {userName: "Lajka", passWord: "Sputnik2"},
-]  
-
-// från webbshop:  container.innerHTML = ""; töm, sätt div runt så kan enkelt tömma knappar
+]  // id om sparas i ls för att veta vem o kunna lägga till ny
+   //localStorage.setItem("nyckel:(userName/id)", JSON.stringify(nyckel)); 
 
 if (localStorage.getItem("userName")) { 
     printMemberPage();
@@ -41,7 +40,7 @@ logInBtn.addEventListener("click", () =>  {
 
 function printMemberPage () { 
     //hämta namn från ls o skriv ut homepage om inloggad finns
-    //loginContanier.innerHTML = ""; för att tömma sidan
+    //(loginContanier.innerHTML = ""; för att tömma sidan)
     let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
     logInBtn.style.display = "none";
@@ -85,7 +84,7 @@ function printHomePage () {
 }
 
 function printWrongPage () {
-    showUserMessage.innerHTML = "Sorry, ivalid user- and or password! ";
+    showUserMessage.innerHTML = "Sorry, invalid username and/or password! ";
     logInBtn.style.display = "block";
     inputPassWord.style.display ="block";
     inputUserName.style.display ="block";
@@ -101,9 +100,10 @@ function printWrongPage () {
 }
 
 newUserBtn.addEventListener("click", () =>  {
-    //KVAR!? function om sign up btn () lägg till i ls och kör ()print memberpage
+    //KVAR!!? function newUserBtn () lägg till i ls och kör ()print memberpage
     //Tips kolla på övn webbshop + behandla ls som databas
-    showUserMessage.innerHTML = "Please create a username and password: ";
+    //object arrow stringify till LS, parsel tillbaka + pusha upp ny användare till object arrow
+    showUserMessage.innerHTML = "Please create a ";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
     labelPassWord.style.display ="none";
@@ -111,27 +111,33 @@ newUserBtn.addEventListener("click", () =>  {
     logInBtn.style.display = "none";
     newUserBtn.style.display = "none";
     //skapa och skriv ut nya input formulär
-    let newlabelUserNameLabel = document.createElement("label"); //Labels visas inte?
+    let newlabelUserNameLabel = document.createElement("label"); 
+    newlabelUserNameLabel.innerHTML = "username: "
     showUserMessage.appendChild(newlabelUserNameLabel);
     let newinputPassWordInput = document.createElement("input");
     showUserMessage.appendChild(newinputPassWordInput);
-    let newlabepassWordLabel = document.createElement("label"); //Labels visas inte?
+    let newlabepassWordLabel = document.createElement("label"); 
+    newlabepassWordLabel.innerHTML = " and pasword: "
     showUserMessage.appendChild(newlabepassWordLabel);
     let newlabelUserNameInput = document.createElement("input");
     showUserMessage.appendChild(newlabelUserNameInput);
     
     //skapa och skriv ut en spara ny användare- knapp
     let saveNewUserButton = document.createElement("button");
-    saveNewUserButton.innerText = "Save"
+    saveNewUserButton.innerHTML = "Save"
     saveNewUserButton.addEventListener("click", () => {
-        //localStorage.removeItem("userName"); ska sparas till ls
-        //printMemberPage(); //homepage..
+      //KVAR!! att spara ny användare
+      //localStorage.setItem("userName", JSON.stringify(getuserName)); sparas till ls
+      //getuserName.push("newUserName")
+      //printMemberPage(); 
     });
     showUserMessage.appendChild(saveNewUserButton);
 
     let cancelButton = document.createElement("button");
     cancelButton.innerText = "Cancel"
     cancelButton.addEventListener("click", () => {
+        //let getuserName = JSON.parse(localStorage.getItem("userName"));
+        //localStorage.removeItem("userName"); tas ur ls
         printHomePage(); 
     });
     showUserMessage.appendChild(cancelButton);

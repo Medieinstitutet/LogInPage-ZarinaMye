@@ -53,6 +53,11 @@ h1 {
     left: 660px;
     top: 290px;
 }
+#saveNewUserButton {
+    position: absolute;
+    left: 660px;
+    top: 300px;
+}
 #showUserMessage {
     position: absolute;
     left: 230px;
