@@ -77,11 +77,10 @@ function printMemberPage () {
     else {
         image.src = "./img/dogMember.png";
     }
-    // log out knapp = raderar värdet ur LS
+    // log out knapp = raderar värdet ur ls
     let logOutButton = document.createElement("button");
     logOutButton.innerText = "Log out"
     logOutButton.addEventListener("click", () => {
-        //localStorage.removeItem("userName");
         localStorage.removeItem("userIsLoggedIn");
         printHomePage();
         let image = document.getElementById("changeDogPic");
@@ -159,14 +158,13 @@ newUserBtn.addEventListener("click", () =>  {
         {alert("Your username and password have been saved, please log in")};
         printHomePage(); 
         ///Förbättring kontrollera nytt anvädn. o lösen, nu kopplar knapp direkt...
-        
     });
     showUserMessage.appendChild(saveNewUserButton);
 
     let cancelButton = document.createElement("button");
     cancelButton.innerText = "Cancel"
     cancelButton.addEventListener("click", () => {
-        //localStorage.removeItem("userName"); tas ur ls
+        // tas ur ls
         localStorage.removeItem("userIsLoggedIn"); 
         printHomePage(); 
     });
