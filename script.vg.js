@@ -39,8 +39,8 @@ logInBtn.addEventListener("click", () =>  {
         //let userName = inputUserName.value; 
         //localStorage.setItem("userName", userName);
         let users = JSON.parse(localStorage.getItem("users"));
-        let loggedIn = users[memberId];
-        localStorage.setItem("userIsLoggedIn", JSON.stringify(loggedIn)); 
+        let userIsLoggedIn = users[memberId];
+        localStorage.setItem("userIsLoggedIn", JSON.stringify(userIsLoggedIn)); 
         printMemberPage();
     }  
     else  {
@@ -147,18 +147,26 @@ newUserBtn.addEventListener("click", () =>  {
     saveNewUserButton.innerHTML = "Save"
     saveNewUserButton.addEventListener("click", () => {
         //skapa ny 
-        let users = JSON.parse(localStorage.getItem("users"));       
-        let newMember = {
-          userId: users.length ++,
-          userName: newUserNameInput.value,
-          passWord: newPassWordInput.value,
+        let users = JSON.parse(localStorage.getItem("users")); 
+        let alreadyMember = users.some(userName => userName.userName === newUserNameInput.value);
+        if (alreadyMember == false) {  
+
+            let newMember = {    //något här i if som är fel men vad?
+              userId: users.length ++,
+              userName: newUserNameInput.value,
+              passWord: newPassWordInput.value,
+            }
+            //pusha 
+            users.push(newMember);
+            localStorage.setItem("users", JSON.stringify(users));
+            ///kanske kontrollera lösen, nu kopplar knapp direkt...
+            {alert("Your username and password have been saved, please log in")};
+            printHomePage(); 
+            
+        } else {
+           {alert("ops something went wrong")}; //funkar
+           printHomePage(); 
         }
-        //pusha 
-        users.push(newMember);
-        localStorage.setItem("users", JSON.stringify(users));
-        ///kanske kontrollera lösen, nu kopplar knapp direkt...
-        {alert("Your username and password have been saved, please log in")};
-        printHomePage(); 
     });
     showUserMessage.appendChild(saveNewUserButton);
 
@@ -171,3 +179,26 @@ newUserBtn.addEventListener("click", () =>  {
     });
     showUserMessage.appendChild(cancelButton);
 });
+
+/* createNewUser = () => {
+    //skapa ny 
+    let users = JSON.parse(localStorage.getItem("users")); 
+    let alreadyMember = users.some(userName => userName.userName === newUserNameInput.value);
+    if (alreadyMember == false) {  //funkar
+
+        let newMember = {
+          userId: users.length ++,
+          userName: newUserNameInput.value,
+          passWord: newPassWordInput.value,
+        }
+        //pusha 
+        users.push(newMember);
+        localStorage.setItem("users", JSON.stringify(users));
+        ///kanske kontrollera lösen, nu kopplar knapp direkt...
+        {alert("Your username and password have been saved, please log in")};
+        printHomePage(); 
+        
+    } else {
+       {alert("ops something went wrong")}; //funkar
+    }
+}  */
