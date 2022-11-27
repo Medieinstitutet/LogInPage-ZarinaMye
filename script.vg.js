@@ -14,7 +14,7 @@ let alreadyMember;
 let newMember;
 
 if (localStorage.getItem("userIsLoggedIn")) {
-   // let Name = JSON.parse(localStorage.getItem("userIsLoggedIn")); 
+    //let name = JSON.parse(localStorage.getItem("userIsLoggedIn")); 
     printMemberPage(); //Name!hänger ihop med janne!??
 } else {
     printHomePage(); // funkar
@@ -38,7 +38,7 @@ logInBtn.addEventListener("click", () =>  {
     //let user = users.find(user => user.userName === inputUserName.value && user.passWord === inputPassWord.value );
     //console.log("user", user);   
     
-    if (checkLogIn()) {
+    if (checkLogIn()) { 
         //let userName = inputUserName.value; 
         //localStorage.setItem("userName", userName);
         let users = JSON.parse(localStorage.getItem("users"));
@@ -65,8 +65,8 @@ function printMemberPage () {
     //let users = localStorage.getItem("users");
     //let name = document.getElementById(users[userId].userName);
     //let userName = JSON.parse(localStorage.getItem("userName"));
-    let userName = localStorage.getItem("userName");
-    showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
+    let name = localStorage.getItem("userName");
+    showUserMessage.innerText = "Voff and welcome" + " " + name + " " + "to your member page! ";
     logInBtn.style.display = "none";                        //KVAR!! userName/id alla ej janne!!
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
@@ -84,6 +84,7 @@ function printMemberPage () {
     let logOutButton = document.createElement("button");
     logOutButton.innerText = "Log out"
     logOutButton.addEventListener("click", () => {
+        //localStorage.removeItem("userName");
         localStorage.removeItem("userIsLoggedIn");
         printHomePage();
         let image = document.getElementById("changeDogPic");
