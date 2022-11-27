@@ -10,8 +10,8 @@ const changeDogPic = document.getElementById("changeDogPic");
 
 let memberId;
 
-if (localStorage.getItem("loggedIn")) {
-    let userName = JSON.parse(localStorage.getItem("loggedIn"));
+if (localStorage.getItem("userIsLoggedIn")) {
+    let userName = JSON.parse(localStorage.getItem("userIsLoggedIn"));
     printMemberPage();
 } else {
     printHomePage(); // funkar
@@ -26,7 +26,7 @@ if (localStorage.getItem("users")) {
         {userId:4, userName: "MollanThePinscher", passWord: "1234",},
         {userId:5, userName: "Pluto", passWord: "H8piff&puff",},
         {userId:6, userName: "Lajka", passWord: "Sputnik2",},
-    ] 
+    ];
     localStorage.setItem("users", JSON.stringify(users));
 }  
 
@@ -38,9 +38,9 @@ logInBtn.addEventListener("click", () =>  {
     if (checkLogIn()) {
         //let userName = inputUserName.value; 
         //localStorage.setItem("userName", userName);
-        const users = JSON.parse(localStorage.getItem("users"));
-        const loggedIn = users[memberId];
-        localStorage.setItem("loggedIn", JSON.stringify(loggedIn)); 
+        let users = JSON.parse(localStorage.getItem("users"));
+        let loggedIn = users[memberId];
+        localStorage.setItem("userIsLoggedIn", JSON.stringify(loggedIn)); 
         printMemberPage();
     }  
     else  {
@@ -49,11 +49,10 @@ logInBtn.addEventListener("click", () =>  {
 });
 
 checkLogIn = () => {
-    const users = JSON.parse(localStorage.getItem("users"));
-    const member = users.find(userName => {return userName.userName === inputUserName.value});
-    if (member.passWord === inputPassWord.value) {  //nått fel med passWord!?
+    let users = JSON.parse(localStorage.getItem("users"));
+    let member = users.find(userName => {return userName.userName === inputUserName.value});
+    if (member.passWord === inputPassWord.value) {  
         memberId = member.userId --;//-1
-        //console.log(userid);
         return true;
     }          
 }
@@ -61,9 +60,11 @@ checkLogIn = () => {
 ////////////////////////
 function printMemberPage () { 
     //hämta namn från ls o skriv ut homepage om inloggad finns
+    //let users = localStorage.getItem("users");
+    //let userName = document.getElementById(users[memberId].userName);
     let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
-    logInBtn.style.display = "none";                        ///id alla ej janne!!
+    logInBtn.style.display = "none";                        ///KVAR!! id alla ej janne!!
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
     labelPassWord.style.display ="none";
@@ -81,7 +82,7 @@ function printMemberPage () {
     logOutButton.innerText = "Log out"
     logOutButton.addEventListener("click", () => {
         //localStorage.removeItem("userName");
-        localStorage.removeItem("loggedIn");
+        localStorage.removeItem("userIsLoggedIn");
         printHomePage();
         let image = document.getElementById("changeDogPic");
         if (image.src.match("dogMember")) {
