@@ -2,7 +2,7 @@ body {
     font-family: Roboto;
     color: white;
     font-size: medium;
-    background-image: url(./img/background.jpg);
+    background-image: url(./background.jpg);
 }
 header {
   background-color: rgb(1, 28, 17, 0.85);
