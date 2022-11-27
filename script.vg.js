@@ -12,11 +12,11 @@ let memberId;
 let member;
 let newMember;
 
-if (localStorage.getItem("userIsLoggedIn")) {
-    //let name = JSON.parse(localStorage.getItem("userIsLoggedIn")); 
+//kolla om nån är inloggad
+if (localStorage.getItem("userIsLoggedIn")) { 
     printMemberPage();
 } else {
-    printHomePage(); // funkar
+    printHomePage();
 }
 
 if (localStorage.getItem("users")) { 
@@ -29,20 +29,20 @@ if (localStorage.getItem("users")) {
         {userId:5, userName: "Pluto", passWord: "H8piff&puff",},
         {userId:6, userName: "Lajka", passWord: "Sputnik2",},
     ];
-    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("users", JSON.stringify(users)); //spar object arrow till ls
 }  
 
 logInBtn.addEventListener("click", () =>  {
     //If user = true, spara i ls     
     
     if (checkLogIn()) { 
-        let users = JSON.parse(localStorage.getItem("users")); //getUsers
+        let users = JSON.parse(localStorage.getItem("users")); //hämta o gör till sträng 
         let userIsLoggedIn = users[memberId];
         localStorage.setItem("userIsLoggedIn", JSON.stringify(userIsLoggedIn)); 
-        printMemberPage(); //funkar
+        printMemberPage(); 
     }
     else  {
-        printWrongPage (); //funkar
+        printWrongPage (); 
     }  
 });
 
@@ -54,15 +54,12 @@ checkLogIn = () => {
         return true;
     }          
 }
-/////////////////Kvar att lösa, kopplar inte namnen
+
+//vy för in-loggad
 function printMemberPage () { 
-    //hämta namn från ls o skriv ut homepage om inloggad finns
-    //let userName = document.getElementById(users[userId].userName);
-    //let users = JSON.parse(localStorage.getItem("users")); 
-    //let userName = users.memberId.userName.value;
     let userName = JSON.parse(localStorage.getItem("userName"));
     showUserMessage.innerText = "Voff and welcome" + " " + userName  + " " + "to your member page! ";
-    logInBtn.style.display = "none";           //KVAR!! userName koppla till userId.userName
+    logInBtn.style.display = "none";           
     inputPassWord.style.display ="none";      
     inputUserName.style.display ="none";
     labelPassWord.style.display ="none";
@@ -75,7 +72,7 @@ function printMemberPage () {
     else {
         image.src = "./img/dogMember.png";
     }
-    // log out knapp o radera värdet ur LS
+    // log out knapp o radera inlogg ur LS
     let logOutButton = document.createElement("button");
     logOutButton.innerText = "Log out"
     logOutButton.addEventListener("click", () => {
@@ -91,8 +88,8 @@ function printMemberPage () {
     });
     showUserMessage.appendChild(logOutButton);
 }
-
-function printHomePage () {
+//vy för ut-loggad
+function printHomePage () { 
     showUserMessage.innerHTML = "Hello! <br> If you are a member you know what to do, if not please sign up.";  
     logInBtn.style.display = "block";
     inputPassWord.style.display ="block";
@@ -101,8 +98,8 @@ function printHomePage () {
     labelUserName.style.display ="block";
     newUserBtn.style.display = "block";
 }
-
-function printWrongPage () {
+ //vy för felmeddelande
+function printWrongPage () { 
     showUserMessage.innerHTML = "Sorry, invalid username and/or password! ";
     logInBtn.style.display = "block";
     inputPassWord.style.display ="block";
@@ -117,8 +114,8 @@ function printWrongPage () {
     });
     showUserMessage.appendChild(cancelButton);
 }
-
-newUserBtn.addEventListener("click", () =>  {
+//vy för att skapa ny anvndare
+newUserBtn.addEventListener("click", () =>  { 
     showUserMessage.innerHTML = "Please create a ";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
@@ -138,26 +135,27 @@ newUserBtn.addEventListener("click", () =>  {
     showUserMessage.appendChild(newPassWordLabel);
     let newPassWordInput = document.createElement("input");
     showUserMessage.appendChild(newPassWordInput);
-     ///////////////////KVAR!! -fungerar! ny användare spars i ls!
+           
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerHTML = "Save"
-    saveNewUserButton.addEventListener("click", () => {
-        //skapa ny 
-        let users = JSON.parse(localStorage.getItem("users"));
+    //skapa ny användare spars i ls   
+    saveNewUserButton.addEventListener("click", () => { 
+        //hämta
+        let users = JSON.parse(localStorage.getItem("users")); 
         let validNewInput = newUserNameInput =! users.userName
         if (validNewInput) {
-
+            //ändra
             let newMember = {    
               userId: users.length + 1,
               userName: newUserNameInput.value,
               passWord: newPassWordInput.value,
             }
-            //pusha 
+            //push o spara
             users.push(newMember); 
             localStorage.setItem("users", JSON.stringify(users)); 
             {alert("Your username and password have been saved, please log in")};
             printHomePage(); 
-            
+
         } else {
            {alert("Ops something went wrong")}; 
            printHomePage(); 
@@ -168,8 +166,6 @@ newUserBtn.addEventListener("click", () =>  {
     let cancelButton = document.createElement("button");
     cancelButton.innerText = "Cancel"
     cancelButton.addEventListener("click", () => {
-        //localStorage.removeItem("userName"); tas ur ls
-        //localStorage.removeItem("userIsLoggedIn"); 
         printHomePage(); 
     });
     showUserMessage.appendChild(cancelButton);
