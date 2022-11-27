@@ -40,10 +40,12 @@ logInBtn.addEventListener("click", () =>  {
         let users = JSON.parse(localStorage.getItem("users"));
         let userIsLoggedIn = users[memberId];
         localStorage.setItem("userIsLoggedIn", JSON.stringify(userIsLoggedIn)); 
-        printMemberPage();
-    }  
+        printMemberPage(); //funkar
+    } else if (inputUserName.length < 1 && inputPassWord.length < 1) {
+        printWrongPage ();  //????varför kan fortf logga in utan lösen o anvdnamn?!!!
+    }
     else  {
-        printWrongPage ();
+        printWrongPage (); //funkar
     }  
 });
 
@@ -51,20 +53,20 @@ checkLogIn = () => {
     let users = JSON.parse(localStorage.getItem("users"));
     let member = users.find(userName => {return userName.userName === inputUserName.value});
     if (member.passWord === inputPassWord.value) {  
-        memberId = member.userId --;
+        memberId = member.userId --; //funkar
         return true;
     }          
 }
 /////////////////Kvar att lösa, kopplar inte namnen
 function printMemberPage () { 
     //hämta namn från ls o skriv ut homepage om inloggad finns
-    //let users = localStorage.getItem("users");
     //let name = document.getElementById(users[userId].userName);
-    //let userName = JSON.parse(localStorage.getItem("userName"));
-    let name = localStorage.getItem("userName");
-    showUserMessage.innerText = "Voff and welcome" + " " + name + " " + "to your member page! ";
-    logInBtn.style.display = "none";           //KVAR!! name koppla till userId.userName
-    inputPassWord.style.display ="none";
+    //let users = JSON.parse(localStorage.getItem("users"));
+    let userName = JSON.parse(localStorage.getItem("users[userId].userName")); //ny!ist för rad under
+    //let userName = localStorage.getItem("userName");
+    showUserMessage.innerText = "Voff and welcome" + " " + userName  + " " + "to your member page! ";
+    logInBtn.style.display = "none";           //KVAR!! userName koppla till userId.userName
+    inputPassWord.style.display ="none";       //${users[memberId].userName}
     inputUserName.style.display ="none";
     labelPassWord.style.display ="none";
     labelUserName.style.display ="none";
