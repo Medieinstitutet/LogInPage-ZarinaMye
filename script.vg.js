@@ -32,6 +32,15 @@ if (localStorage.getItem("users")) {
     localStorage.setItem("users", JSON.stringify(users)); //spar object arrow till ls
 }  
 
+checkLogIn = () => {
+    let users = JSON.parse(localStorage.getItem("users"));
+    let member = users.find(userName => {return userName.userName === inputUserName.value}); //&& passWord.passWord === inputPassWord.value
+    if (member.passWord === inputPassWord.value) {  
+        memberId = member.userId --; 
+        return true;
+    }          
+}
+
 //KVAR! att lösa: ny användare, de spars i ls men loggas inte in
 logInBtn.addEventListener("click", () =>  {   
     
@@ -48,9 +57,9 @@ logInBtn.addEventListener("click", () =>  {
 
 checkLogIn = () => {
     let users = JSON.parse(localStorage.getItem("users"));
-    let member = users.find(userName => {return userName.userName === inputUserName.value});
+    let member = users.find(userName => {return userName.userName === inputUserName.value}); //&& passWord.passWord === inputPassWord.value
     if (member.passWord === inputPassWord.value) {  
-        memberId = member.userId - 1; 
+        memberId = member.userId --; 
         return true;
     }          
 }
@@ -58,12 +67,14 @@ checkLogIn = () => {
 //vy för in-loggad
 function printMemberPage () { 
     //KVAR! att lösa: koppla rätt namn-(userName) vid inlogg
+
     //let userName = document.getElementById(users[userId].userName);
     //let users = JSON.parse(localStorage.getItem("users")); 
     //let userName = users.memberId.userName.value;
+    //let userName = localStorage.getItem("userName");
 
     let userName = JSON.parse(localStorage.getItem("userName"));
-    showUserMessage.innerText = "Voff and welcome" + " " + userName  + " " + "to your member page! ";
+    showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
     logInBtn.style.display = "none";           
     inputPassWord.style.display ="none";      
     inputUserName.style.display ="none";
@@ -154,7 +165,7 @@ newUserBtn.addEventListener("click", () =>  {
         if (validNewInput) {
             
             let newMember = {    
-              userId: users.length + 1,
+              userId: users.length ++,
               userName: newUserNameInput.value,
               passWord: newPassWordInput.value,
             } //ändra
