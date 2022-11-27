@@ -50,7 +50,7 @@ checkLogIn = () => {
     let users = JSON.parse(localStorage.getItem("users"));
     let member = users.find(userName => {return userName.userName === inputUserName.value});
     if (member.passWord === inputPassWord.value) {  
-        memberId = member.userId --; //funkar
+        memberId = member.userId - 1; 
         return true;
     }          
 }
@@ -138,27 +138,28 @@ newUserBtn.addEventListener("click", () =>  {
     showUserMessage.appendChild(newPassWordLabel);
     let newPassWordInput = document.createElement("input");
     showUserMessage.appendChild(newPassWordInput);
-     ///////////////////KVAR!! få ny användare att funka 
-    //skapa och spara ny användare- knapp 
+     ///////////////////KVAR!! -fungerar! ny användare spars i ls!
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerHTML = "Save"
     saveNewUserButton.addEventListener("click", () => {
-        //skapa ny ////något här i if som är fel men vad?
-        if (newUserNameInput.length >= 2 && newPassWordInput.length >= 2 && newUserNameInput.length <= 10 && newPassWordInput.length <= 10) {
+        //skapa ny 
+        let users = JSON.parse(localStorage.getItem("users"));
+        let validNewInput = newUserNameInput =! users.userName
+        if (validNewInput) {
 
             let newMember = {    
-              userId: users.length ++,
+              userId: users.length + 1,
               userName: newUserNameInput.value,
               passWord: newPassWordInput.value,
             }
             //pusha 
-            users.push(newMember); //getUsers
-            localStorage.setItem("users", JSON.stringify(users)); //(getUsers)
+            users.push(newMember); 
+            localStorage.setItem("users", JSON.stringify(users)); 
             {alert("Your username and password have been saved, please log in")};
             printHomePage(); 
             
         } else {
-           {alert("Ops something went wrong")}; //funkar
+           {alert("Ops something went wrong")}; 
            printHomePage(); 
         }
     });
@@ -173,26 +174,3 @@ newUserBtn.addEventListener("click", () =>  {
     });
     showUserMessage.appendChild(cancelButton);
 });
-
-/* createNewUser = () => {
-    //skapa ny 
-    let users = JSON.parse(localStorage.getItem("users")); 
-    let alreadyMember = users.some(userName => userName.userName === newUserNameInput.value);
-    if (alreadyMember == false) {  //funkar
-
-        let newMember = {
-          userId: users.length ++,
-          userName: newUserNameInput.value,
-          passWord: newPassWordInput.value,
-        }
-        //pusha 
-        users.push(newMember);
-        localStorage.setItem("users", JSON.stringify(users));
-        ///kanske kontrollera lösen, nu kopplar knapp direkt...
-        {alert("Your username and password have been saved, please log in")};
-        printHomePage(); 
-        
-    } else {
-       {alert("ops something went wrong")}; 
-    }
-}  */
