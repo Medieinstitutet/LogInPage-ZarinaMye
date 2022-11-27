@@ -32,8 +32,8 @@ if (localStorage.getItem("users")) {
     localStorage.setItem("users", JSON.stringify(users)); //spar object arrow till ls
 }  
 
-logInBtn.addEventListener("click", () =>  {
-    //If user = true, spara i ls     
+//KVAR! att lösa: ny användare, de spars i ls men loggas inte in
+logInBtn.addEventListener("click", () =>  {   
     
     if (checkLogIn()) { 
         let users = JSON.parse(localStorage.getItem("users")); //hämta o gör till sträng 
@@ -57,6 +57,11 @@ checkLogIn = () => {
 
 //vy för in-loggad
 function printMemberPage () { 
+    //KVAR! att lösa: koppla rätt namn-(userName) vid inlogg
+    //let userName = document.getElementById(users[userId].userName);
+    //let users = JSON.parse(localStorage.getItem("users")); 
+    //let userName = users.memberId.userName.value;
+
     let userName = JSON.parse(localStorage.getItem("userName"));
     showUserMessage.innerText = "Voff and welcome" + " " + userName  + " " + "to your member page! ";
     logInBtn.style.display = "none";           
@@ -72,7 +77,7 @@ function printMemberPage () {
     else {
         image.src = "./img/dogMember.png";
     }
-    // log out knapp o radera inlogg ur LS
+    // log out knapp o radera inlogg ur ls
     let logOutButton = document.createElement("button");
     logOutButton.innerText = "Log out"
     logOutButton.addEventListener("click", () => {
@@ -117,7 +122,7 @@ function printWrongPage () {
     showUserMessage.appendChild(cancelButton);
 }
 
-//vy för att skapa ny anvndare
+//vy för att skapa ny användare
 newUserBtn.addEventListener("click", () =>  { 
     showUserMessage.innerHTML = "Please create a ";
     inputPassWord.style.display ="none";
@@ -147,17 +152,17 @@ newUserBtn.addEventListener("click", () =>  {
         let users = JSON.parse(localStorage.getItem("users")); 
         let validNewInput = newUserNameInput =! users.userName
         if (validNewInput) {
-            //ändra
+            
             let newMember = {    
               userId: users.length + 1,
               userName: newUserNameInput.value,
               passWord: newPassWordInput.value,
-            }
-            //push o spara
+            } //ändra
+            
             users.push(newMember); 
             localStorage.setItem("users", JSON.stringify(users)); 
             {alert("Your username and password have been saved, please log in")};
-            printHomePage(); 
+            printHomePage(); //push o spara
 
         } else {
            {alert("Ops something went wrong")}; 
