@@ -52,16 +52,16 @@ checkLogIn = () => {
     let users = JSON.parse(localStorage.getItem("users"));
     let member = users.find(userName => {return userName.userName === inputUserName.value});
     if (member.passWord === inputPassWord.value) {  
-        memberId = member.userId --;//-1
+        memberId = member.userId --;
         return true;
     }          
 }
-
-////////////////////////
+/////////////////Kvar att lösa, kopplar inte namnen, alla är Janne
 function printMemberPage () { 
     //hämta namn från ls o skriv ut homepage om inloggad finns
     //let users = localStorage.getItem("users");
     //let name = document.getElementById(users[userId].userName);
+    //let userName = JSON.parse(localStorage.getItem("userName"));
     let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
     logInBtn.style.display = "none";                        ///KVAR!! id alla ej janne!!
@@ -120,7 +120,7 @@ function printWrongPage () {
     });
     showUserMessage.appendChild(cancelButton);
 }
-
+/////////////////////KVAR, få ny medlem att fungera
 newUserBtn.addEventListener("click", () =>  {
     //KVAR!!? function newUserBtn () lägg till i ls och kör ()print memberpage
     //Tips kolla på övn webbshop + behandla ls som databas
@@ -154,7 +154,7 @@ newUserBtn.addEventListener("click", () =>  {
        if (alreadyMember == false) {
             ///skapa ny användare 
             let newMember = {
-            userId: users.length ++,///+1
+            userId: users.length ++,
             userName: newUserNameInput.value,
             passWord: newPassWordInput.value,
             };
