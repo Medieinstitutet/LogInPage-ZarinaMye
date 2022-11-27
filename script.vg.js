@@ -9,6 +9,7 @@ const showUserMessage = document.getElementById("showUserMessage")
 const changeDogPic = document.getElementById("changeDogPic");
 
 let memberId;
+let member;
 
 if (localStorage.getItem("userIsLoggedIn")) {
    // let Name = JSON.parse(localStorage.getItem("userIsLoggedIn")); 
