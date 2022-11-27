@@ -64,7 +64,7 @@ function printMemberPage () {
     //let userName = JSON.parse(localStorage.getItem("userName"));
     let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
-    logInBtn.style.display = "none";                        ///KVAR!! userName/id alla ej janne!!
+    logInBtn.style.display = "none";                        //KVAR!! userName/id alla ej janne!!
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
     labelPassWord.style.display ="none";
