@@ -98,10 +98,11 @@ function printWrongPage () {
     });
     showUserMessage.appendChild(cancelButton);
 }
-
+/////////////////////////////////////////////////////////////////////////////////////
+//Koppla scriptfil: script.vg.js istället för denna fil till index.html
+//där har jag försökt lösa att lägga till ny användare m ls som databas
 newUserBtn.addEventListener("click", () =>  {
-    //KVAR!! koppla scriptfil: script.vg.js istället för denna till index.html 
-    // där har jag försökt lösa lägga till ny användare m ls som databas 
+    //KVAR!! att lösa: ny användare
     showUserMessage.innerHTML = "Please create a ";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
@@ -125,7 +126,7 @@ newUserBtn.addEventListener("click", () =>  {
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerHTML = "Save"
     saveNewUserButton.addEventListener("click", () => {
-      //KVAR!! att spara ny användare, se scrpit.vg.js
+    //KVAR!! att spara ny användare, se scrpit.vg.js
  
     });
     showUserMessage.appendChild(saveNewUserButton);
