@@ -104,7 +104,7 @@ function printWrongPage () {
 /////////////////////////////////////////////////////////////////////////////////////
 //Koppla scriptfil: script.vg.js istället för denna fil till index.html
 //där har jag försökt lösa att lägga till ny användare m ls som databas
-// vy skap ny användare
+// vy skapa ny användare
 newUserBtn.addEventListener("click", () =>  {
    
     showUserMessage.innerHTML = "Please create a ";
