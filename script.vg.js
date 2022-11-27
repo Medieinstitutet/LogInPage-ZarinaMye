@@ -10,7 +10,6 @@ const changeDogPic = document.getElementById("changeDogPic");
 
 let memberId;
 let member;
-let alreadyMember;
 let newMember;
 
 if (localStorage.getItem("userIsLoggedIn")) {
@@ -41,9 +40,9 @@ logInBtn.addEventListener("click", () =>  {
         let userIsLoggedIn = users[memberId];
         localStorage.setItem("userIsLoggedIn", JSON.stringify(userIsLoggedIn)); 
         printMemberPage(); //funkar
-    } else if (inputUserName.length < 1 && inputPassWord.length < 1) {
+    } else if (inputUserName.length = 0 && inputPassWord.length <= 0 ) {
         printWrongPage ();  //????varför kan fortf logga in utan lösen o anvdnamn?!!!
-    }
+    }                       // null funkar inte heller ...
     else  {
         printWrongPage (); //funkar
     }  
@@ -60,13 +59,13 @@ checkLogIn = () => {
 /////////////////Kvar att lösa, kopplar inte namnen
 function printMemberPage () { 
     //hämta namn från ls o skriv ut homepage om inloggad finns
-    //let name = document.getElementById(users[userId].userName);
-    //let users = JSON.parse(localStorage.getItem("users"));
-    let userName = JSON.parse(localStorage.getItem("users[userId].userName")); //ny!ist för rad under
-    //let userName = localStorage.getItem("userName");
+    //let userName = document.getElementById(users[userId].userName);
+    //let users = JSON.parse(localStorage.getItem("users")); 
+    //let userName = users.memberId.userName.value;
+    let userName = JSON.parse(localStorage.getItem("userName"));
     showUserMessage.innerText = "Voff and welcome" + " " + userName  + " " + "to your member page! ";
     logInBtn.style.display = "none";           //KVAR!! userName koppla till userId.userName
-    inputPassWord.style.display ="none";       //${users[memberId].userName}
+    inputPassWord.style.display ="none";      
     inputUserName.style.display ="none";
     labelPassWord.style.display ="none";
     labelUserName.style.display ="none";
@@ -147,9 +146,7 @@ newUserBtn.addEventListener("click", () =>  {
     saveNewUserButton.innerHTML = "Save"
     saveNewUserButton.addEventListener("click", () => {
         //skapa ny 
-        let users = JSON.parse(localStorage.getItem("users")); 
-        let alreadyMember = users.some(userName => userName.userName === newUserNameInput.value);
-        if (alreadyMember == false) {  
+        if (newUserNameInput.length >= 2 && newPassWordInput.length >= 2 && newUserNameInput.length <= 10 && newPassWordInput.length <= 10) {
 
             let newMember = {    //något här i if som är fel men vad?
               userId: users.length ++,
@@ -159,7 +156,6 @@ newUserBtn.addEventListener("click", () =>  {
             //pusha 
             users.push(newMember);
             localStorage.setItem("users", JSON.stringify(users));
-            ///kanske kontrollera nytt lösen, nu kopplar knapp direkt...
             {alert("Your username and password have been saved, please log in")};
             printHomePage(); 
             
