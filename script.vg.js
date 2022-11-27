@@ -11,8 +11,8 @@ const changeDogPic = document.getElementById("changeDogPic");
 let memberId;
 
 if (localStorage.getItem("userIsLoggedIn")) {
-    let userName = JSON.parse(localStorage.getItem("userIsLoggedIn"));
-    printMemberPage();
+   // let Name = JSON.parse(localStorage.getItem("userIsLoggedIn")); 
+    printMemberPage(); //Name!hänger ihop med janne!??
 } else {
     printHomePage(); // funkar
 }
@@ -64,7 +64,7 @@ function printMemberPage () {
     //let userName = JSON.parse(localStorage.getItem("userName"));
     let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
-    logInBtn.style.display = "none";                        ///KVAR!! id alla ej janne!!
+    logInBtn.style.display = "none";                        ///KVAR!! userName/id alla ej janne!!
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
     labelPassWord.style.display ="none";
@@ -120,11 +120,9 @@ function printWrongPage () {
     });
     showUserMessage.appendChild(cancelButton);
 }
-/////////////////////KVAR, få ny medlem att fungera
+
 newUserBtn.addEventListener("click", () =>  {
-    //KVAR!!? function newUserBtn () lägg till i ls och kör ()print memberpage
-    //Tips kolla på övn webbshop + behandla ls som databas
-    //object arrow stringify till LS, parsel tillbaka + pusha upp ny användare till object arrow
+
     showUserMessage.innerHTML = "Please create a ";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
@@ -148,23 +146,20 @@ newUserBtn.addEventListener("click", () =>  {
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerHTML = "Save"
     saveNewUserButton.addEventListener("click", () => {
-      //KVAR!! att spara ny användare
-       let users = JSON.parse(localStorage.getItem("users"));
-       let alreadyMember = users.some(userName => userName.userName === newUserNameInput.value);
-       if (alreadyMember == false) {
-            ///skapa ny användare 
-            let newMember = {
-            userId: users.length ++,
-            userName: newUserNameInput.value,
-            passWord: newPassWordInput.value,
-            };
-            //pusha 
-            users.push(newMember);
-            localStorage.setItem("users", JSON.stringify(users));
-            {alert("Your username and password have been saved, please log in")};
-            printHomePage(); 
-            ///kanske kontrollera lösen, nu kopplar knapp direkt...
-        }
+        ///skapa ny användare 
+        let users = JSON.parse(localStorage.getItem("users"));       
+        let newMember = {
+        userId: users.length ++,
+        userName: newUserNameInput.value,
+        passWord: newPassWordInput.value,
+        };
+        //pusha 
+        users.push(newMember);
+        localStorage.setItem("users", JSON.stringify(users));
+        {alert("Your username and password have been saved, please log in")};
+        printHomePage(); 
+        ///kanske kontrollera lösen, nu kopplar knapp direkt...
+        
     });
     showUserMessage.appendChild(saveNewUserButton);
 
