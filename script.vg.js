@@ -36,13 +36,11 @@ logInBtn.addEventListener("click", () =>  {
     //If user = true, spara i ls     
     
     if (checkLogIn()) { 
-        let users = JSON.parse(localStorage.getItem("users"));
+        let users = JSON.parse(localStorage.getItem("users")); //getUsers
         let userIsLoggedIn = users[memberId];
         localStorage.setItem("userIsLoggedIn", JSON.stringify(userIsLoggedIn)); 
         printMemberPage(); //funkar
-    } else if (inputUserName.length = 0 && inputPassWord.length <= 0 ) {
-        printWrongPage ();  //????varför kan fortf logga in utan lösen o anvdnamn?!!!
-    }                       // null funkar inte heller ...
+    }
     else  {
         printWrongPage (); //funkar
     }  
@@ -145,22 +143,22 @@ newUserBtn.addEventListener("click", () =>  {
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerHTML = "Save"
     saveNewUserButton.addEventListener("click", () => {
-        //skapa ny 
+        //skapa ny ////något här i if som är fel men vad?
         if (newUserNameInput.length >= 2 && newPassWordInput.length >= 2 && newUserNameInput.length <= 10 && newPassWordInput.length <= 10) {
 
-            let newMember = {    //något här i if som är fel men vad?
+            let newMember = {    
               userId: users.length ++,
               userName: newUserNameInput.value,
               passWord: newPassWordInput.value,
             }
             //pusha 
-            users.push(newMember);
-            localStorage.setItem("users", JSON.stringify(users));
+            users.push(newMember); //getUsers
+            localStorage.setItem("users", JSON.stringify(users)); //(getUsers)
             {alert("Your username and password have been saved, please log in")};
             printHomePage(); 
             
         } else {
-           {alert("ops something went wrong")}; //funkar
+           {alert("Ops something went wrong")}; //funkar
            printHomePage(); 
         }
     });
