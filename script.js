@@ -26,12 +26,11 @@ if (localStorage.getItem("userName")) {
 logInBtn.addEventListener("click", () =>  {
     //If user = true, spara i ls     
     let user = users.find(user => user.userName === inputUserName.value && user.passWord === inputPassWord.value );
-    console.log("user", user);                ///user.userId om id
+    console.log("user", user);               
 
     if (user) {
         let userName = inputUserName.value; 
         localStorage.setItem("userName", userName);
-        //localStorage.setItem("users", JSON.stringify(users));
         printMemberPage();
     }
     else  {
@@ -42,7 +41,7 @@ logInBtn.addEventListener("click", () =>  {
 function printMemberPage () { 
     //hämta namn från ls o skriv ut homepage om inloggad finns
     //(loginContanier.innerHTML = ""; för att tömma sidan)
-    let userName = localStorage.getItem("userName");//stringyfy username?userID?
+    let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
     logInBtn.style.display = "none";
     inputPassWord.style.display ="none";
@@ -101,9 +100,8 @@ function printWrongPage () {
 }
 
 newUserBtn.addEventListener("click", () =>  {
-    //KVAR!!? function newUserBtn () lägg till i ls och kör ()print memberpage
-    //Tips kolla på övn webbshop + behandla ls som databas
-    //object arrow stringify till LS, parsel tillbaka + pusha upp ny användare till object arrow
+    //KVAR!! koppla scriptfil: script.vg.js istället för denna till index.html 
+    // där har jag försökt lösa lägga till ny användare m ls som databas 
     showUserMessage.innerHTML = "Please create a ";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
@@ -127,18 +125,14 @@ newUserBtn.addEventListener("click", () =>  {
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerHTML = "Save"
     saveNewUserButton.addEventListener("click", () => {
-      //KVAR!! att spara ny användare
-      //localStorage.setItem("userName", JSON.stringify(getuserName)); sparas till ls
-      //getuserName.push("newUserName")
-      //printMemberPage(); 
+      //KVAR!! att spara ny användare, se scrpit.vg.js
+ 
     });
     showUserMessage.appendChild(saveNewUserButton);
 
     let cancelButton = document.createElement("button");
     cancelButton.innerText = "Cancel"
     cancelButton.addEventListener("click", () => {
-        //let getuserName = JSON.parse(localStorage.getItem("userName"));
-        //localStorage.removeItem("userName"); tas ur ls
         printHomePage(); 
     });
     showUserMessage.appendChild(cancelButton);
