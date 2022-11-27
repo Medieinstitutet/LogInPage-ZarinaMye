@@ -88,6 +88,7 @@ function printMemberPage () {
     });
     showUserMessage.appendChild(logOutButton);
 }
+
 //vy för ut-loggad
 function printHomePage () { 
     showUserMessage.innerHTML = "Hello! <br> If you are a member you know what to do, if not please sign up.";  
@@ -98,6 +99,7 @@ function printHomePage () {
     labelUserName.style.display ="block";
     newUserBtn.style.display = "block";
 }
+
  //vy för felmeddelande
 function printWrongPage () { 
     showUserMessage.innerHTML = "Sorry, invalid username and/or password! ";
@@ -114,6 +116,7 @@ function printWrongPage () {
     });
     showUserMessage.appendChild(cancelButton);
 }
+
 //vy för att skapa ny anvndare
 newUserBtn.addEventListener("click", () =>  { 
     showUserMessage.innerHTML = "Please create a ";

@@ -17,6 +17,7 @@ let users = [
     {userId:6, userName: "Lajka", passWord: "Sputnik2"},
 ]
 
+//kolla om nån är inloggad
 if (localStorage.getItem("userName")) { 
     printMemberPage();
 } else {
@@ -24,7 +25,7 @@ if (localStorage.getItem("userName")) {
 }
 
 logInBtn.addEventListener("click", () =>  {
-    //If user = true, spara i ls     
+       
     let user = users.find(user => user.userName === inputUserName.value && user.passWord === inputPassWord.value );
     console.log("user", user);               
 
@@ -38,9 +39,9 @@ logInBtn.addEventListener("click", () =>  {
     }  
 });
 
+//vy in-loggad
 function printMemberPage () { 
-    //hämta namn från ls o skriv ut homepage om inloggad finns
-    //(loginContanier.innerHTML = ""; för att tömma sidan)
+   
     let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
     logInBtn.style.display = "none";
@@ -56,7 +57,7 @@ function printMemberPage () {
     else {
         image.src = "./img/dogMember.png";
     }
-    // log out knapp = raderar värdet ur LS
+    // log out knapp o radera inlogg ur ls
     let logOutButton = document.createElement("button");
     logOutButton.innerText = "Log out"
     logOutButton.addEventListener("click", () => {
@@ -73,6 +74,7 @@ function printMemberPage () {
     showUserMessage.appendChild(logOutButton);
 }
 
+//vy ut-loggad
 function printHomePage () {
     showUserMessage.innerHTML = "Hello! <br> If you are a member you know what to do, if not please sign up.";  
     logInBtn.style.display = "block";
@@ -83,6 +85,7 @@ function printHomePage () {
     newUserBtn.style.display = "block";
 }
 
+//vy felmeddelande
 function printWrongPage () {
     showUserMessage.innerHTML = "Sorry, invalid username and/or password! ";
     logInBtn.style.display = "block";
@@ -101,8 +104,9 @@ function printWrongPage () {
 /////////////////////////////////////////////////////////////////////////////////////
 //Koppla scriptfil: script.vg.js istället för denna fil till index.html
 //där har jag försökt lösa att lägga till ny användare m ls som databas
+// vy skap ny användare
 newUserBtn.addEventListener("click", () =>  {
-    //KVAR!! att lösa: ny användare
+   
     showUserMessage.innerHTML = "Please create a ";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
@@ -126,7 +130,7 @@ newUserBtn.addEventListener("click", () =>  {
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerHTML = "Save"
     saveNewUserButton.addEventListener("click", () => {
-    //KVAR!! att spara ny användare, se scrpit.vg.js
+     //skapa o spar ny användare
  
     });
     showUserMessage.appendChild(saveNewUserButton);
