@@ -61,7 +61,7 @@ checkLogIn = () => {
 function printMemberPage () { 
     //hämta namn från ls o skriv ut homepage om inloggad finns
     //let users = localStorage.getItem("users");
-    //let userName = document.getElementById(users[memberId].userName);
+    //let name = document.getElementById(users[userId].userName);
     let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
     logInBtn.style.display = "none";                        ///KVAR!! id alla ej janne!!
@@ -150,7 +150,7 @@ newUserBtn.addEventListener("click", () =>  {
     saveNewUserButton.addEventListener("click", () => {
       //KVAR!! att spara ny användare
        let users = JSON.parse(localStorage.getItem("users"));
-       const alreadyMember = users.some(userName => userName.userName === newUserNameInput.value);
+       let alreadyMember = users.some(userName => userName.userName === newUserNameInput.value);
        if (alreadyMember == false) {
             ///skapa ny användare 
             let newMember = {
@@ -172,7 +172,7 @@ newUserBtn.addEventListener("click", () =>  {
     cancelButton.innerText = "Cancel"
     cancelButton.addEventListener("click", () => {
         //localStorage.removeItem("userName"); tas ur ls
-        localStorage.removeItem("loggedIn"); 
+        localStorage.removeItem("userIsLoggedIn"); 
         printHomePage(); 
     });
     showUserMessage.appendChild(cancelButton);
