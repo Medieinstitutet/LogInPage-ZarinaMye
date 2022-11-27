@@ -77,10 +77,11 @@ function printMemberPage () {
     else {
         image.src = "./img/dogMember.png";
     }
-    // log out knapp = raderar värdet ur ls
+    // log out knapp = raderar värdet ur LS
     let logOutButton = document.createElement("button");
     logOutButton.innerText = "Log out"
     logOutButton.addEventListener("click", () => {
+        //localStorage.removeItem("userName");
         localStorage.removeItem("userIsLoggedIn");
         printHomePage();
         let image = document.getElementById("changeDogPic");
@@ -121,7 +122,6 @@ function printWrongPage () {
 }
 
 newUserBtn.addEventListener("click", () =>  {
-
     showUserMessage.innerHTML = "Please create a ";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
@@ -129,6 +129,7 @@ newUserBtn.addEventListener("click", () =>  {
     labelUserName.style.display ="none";
     logInBtn.style.display = "none";
     newUserBtn.style.display = "none";
+
     //skapa och skriv ut nya input formulär
     let newUserNameLabel = document.createElement("label"); 
     newUserNameLabel.innerHTML = "username: "
@@ -140,32 +141,32 @@ newUserBtn.addEventListener("click", () =>  {
     showUserMessage.appendChild(newPassWordLabel);
     let newPassWordInput = document.createElement("input");
     showUserMessage.appendChild(newPassWordInput);
-    
-    //skapa och skriv ut en spara ny användare- knapp
+     ///////////////////KVAR få ny användare att funka 
+    //skapa och skriv ut en spara ny användare- knapp 
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerHTML = "Save"
     saveNewUserButton.addEventListener("click", () => {
-        ///skapa ny användare 
+        //skapa ny 
         let users = JSON.parse(localStorage.getItem("users"));       
         let newMember = {
-        userId: users.length ++,
-        userName: newUserNameInput.value,
-        passWord: newPassWordInput.value,
-        };
+          userId: users.length ++,
+          userName: newUserNameInput.value,
+          passWord: newPassWordInput.value,
+        }
         //pusha 
         users.push(newMember);
         localStorage.setItem("users", JSON.stringify(users));
+        ///kanske kontrollera lösen, nu kopplar knapp direkt...
         {alert("Your username and password have been saved, please log in")};
         printHomePage(); 
-        ///Förbättring kontrollera nytt anvädn. o lösen, nu kopplar knapp direkt...
     });
     showUserMessage.appendChild(saveNewUserButton);
 
     let cancelButton = document.createElement("button");
     cancelButton.innerText = "Cancel"
     cancelButton.addEventListener("click", () => {
-        // tas ur ls
-        localStorage.removeItem("userIsLoggedIn"); 
+        //localStorage.removeItem("userName"); tas ur ls
+        //localStorage.removeItem("userIsLoggedIn"); 
         printHomePage(); 
     });
     showUserMessage.appendChild(cancelButton);
