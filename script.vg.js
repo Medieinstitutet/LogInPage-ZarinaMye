@@ -10,6 +10,8 @@ const changeDogPic = document.getElementById("changeDogPic");
 
 let memberId;
 let member;
+let alreadyMember;
+let newMember;
 
 if (localStorage.getItem("userIsLoggedIn")) {
    // let Name = JSON.parse(localStorage.getItem("userIsLoggedIn")); 
@@ -82,7 +84,6 @@ function printMemberPage () {
     let logOutButton = document.createElement("button");
     logOutButton.innerText = "Log out"
     logOutButton.addEventListener("click", () => {
-        //localStorage.removeItem("userName");
         localStorage.removeItem("userIsLoggedIn");
         printHomePage();
         let image = document.getElementById("changeDogPic");
@@ -200,6 +201,6 @@ newUserBtn.addEventListener("click", () =>  {
         printHomePage(); 
         
     } else {
-       {alert("ops something went wrong")}; //funkar
+       {alert("ops something went wrong")}; 
     }
 }  */
