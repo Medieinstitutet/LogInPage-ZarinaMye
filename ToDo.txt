@@ -10,7 +10,7 @@ VG
 [x] fler användare, doc i readme
 [/] ny användare kan läggas till via nytt input-formulär
     försökt lösa i filen script.vg.js, 
-    1 fel; namn som visas vid inlogg(null)
+    1 fel; namn som visas vid inlogg(object/undefined)
 
 
 [x] styla/css sidan 

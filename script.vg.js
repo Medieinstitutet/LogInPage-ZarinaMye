@@ -60,12 +60,14 @@ function printMemberPage () {
     //let users = JSON.parse(localStorage.getItem("users")); 
     //let userName = users.memberId.userName.value;
     //let userName = localStorage.getItem("userName");
-
-    let name = JSON.parse(localStorage.getItem("userName"));
+    
+    let users = JSON.parse(localStorage.getItem("users"));
+    let userName = users.find(user => user.userName == inputUserName.value || newUserNameInput.value);
+    //let name = JSON.parse(localStorage.getItem("userName"));
     //let name = users.userName.value
     //let name = users[memberId];
     //let name = users.find(userId = inputUserName.value); 
-    showUserMessage.innerText = "Voff and welcome" + " " + name + " " + "to your member page! ";
+    showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
     
     logInBtn.style.display = "none";
     inputPassWord.style.display ="none";
