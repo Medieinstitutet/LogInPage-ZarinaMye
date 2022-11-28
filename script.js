@@ -136,7 +136,7 @@ function printWrongPage () {
 }
 /////////////////////////////////////////////////////////////////////////////////////
 //Koppla scriptfil: script.vg.js istället för denna fil till index.html
-//där har jag försökt lösa att lägga till ny användare m ls som databas
+//där har jag löst att lägga till ny användare m ls som databas
 // vy skapa ny användare
 newUserBtn.addEventListener("click", () =>  {
    
@@ -151,12 +151,13 @@ newUserBtn.addEventListener("click", () =>  {
     newPassWordInput.style.display = "block";
     newUserNameLabel.style.display = "block";
     newUserPassWordLabel.style.display = "block";
-    //showNewUserMessage.style.display = "block";
-    //skapa och skriv ut en spara ny användare- knapp
+    
+    //skapa o skriv ut spara ny användare- knapp
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerHTML = "Save"
     saveNewUserButton.addEventListener("click", () => {
-     //skapa o spar ny användare
+     //skapa o spar ny användare. 
+     //För att se lösning, byt kopplad script-fil till: script.vg.js
  
     });
     showUserMessage.appendChild(saveNewUserButton);
