@@ -30,7 +30,7 @@ let users = [
 localStorage.setItem("users", JSON.stringify(users)); //spar object arrow till ls
 
 //KVAR! att lösa: ny användare inlogg
-//loggas inte in för att bara id o password sparas i ls..)
+//loggas inte in för att bara id o password sparas i ls.., varför spars inte userName??!!)
 logInBtn.addEventListener("click", () =>  {   
 
     let users = JSON.parse(localStorage.getItem("users"));
@@ -47,16 +47,6 @@ logInBtn.addEventListener("click", () =>  {
         printWrongPage (); 
     }  
 });
-
-/* checkLogIn = () => {
-    let users = JSON.parse(localStorage.getItem("users"));
-    let user = users.find(user => {return user.userName === inputUserName.value && user.passWord === inputPassWord.value});
-    //let member = users.find(userName => {return userName.userName === inputUserName.value}); 
-    if (user.passWord === inputPassWord.value) {  
-        memberId = user.userId; 
-        return true;
-    }          
-} */
 
 //vy för in-loggad
 function printMemberPage () { 
