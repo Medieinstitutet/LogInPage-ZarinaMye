@@ -7,9 +7,15 @@ const labelUserName = document.getElementById("labelUserName")
 const loginContanier = document.getElementById("loginContanier")
 const showUserMessage = document.getElementById("showUserMessage")
 const changeDogPic = document.getElementById("changeDogPic");
+const newUserNameInput = document.getElementById("newUserNameInput")
+const newPassWordInput = document.getElementById("newPassWordInput")
+const newUserInput = document.getElementById("newUserInput") 
+const newUserBtns = document.getElementById("newUserBtns") 
+const newUserLabels = document.getElementById("newUserLabels")
+const newUserPassWordLabel = document.getElementById("newUserPassWordLabel")
+const newUserNameLabel = document.getElementById("newUserNameLabel")
+const showNewUserMessage = document.getElementById("showNewUserMessage")
 
-let memberId;
-let member;
 let newMember;
 
 //kolla om nån är inloggad
@@ -29,17 +35,15 @@ let users = [
 ];
 localStorage.setItem("users", JSON.stringify(users)); //spar object arrow till ls
 
-//KVAR! att lösa: ny användare inlogg
-//loggas inte in för att bara id o password sparas i ls.., varför spars inte userName??!!)
 logInBtn.addEventListener("click", () =>  {   
 
     let users = JSON.parse(localStorage.getItem("users"));
-    let user = users.find(user => user.userName === inputUserName.value && user.passWord === inputPassWord.value);
-     //|| user.userName === newUserNameInput.value);
+    let user = users.find(user => user.userName === inputUserName.value || newUserNameInput.value);// && user.passWord === inputPassWord.value || newPassWordInput.value);
+     //kolla password också..!!då göra input password till global variabel också..
     
     if (user) { 
         
-        let userIsLoggedIn = inputUserName.value || newUserNameInput.value;
+        let userIsLoggedIn = inputUserName.value; // || newUserNameInput.value;
         localStorage.setItem("userIsLoggedIn", JSON.stringify(userIsLoggedIn)); 
         printMemberPage(); 
     }
@@ -60,14 +64,23 @@ function printMemberPage () {
     let name = JSON.parse(localStorage.getItem("userName"));
     //let name = users.userName.value
     //let name = users[memberId];
-    //let name = users.find(userId = inputUserName.value}); 
+    //let name = users.find(userId = inputUserName.value); 
     showUserMessage.innerText = "Voff and welcome" + " " + name + " " + "to your member page! ";
-    logInBtn.style.display = "none";           
-    inputPassWord.style.display ="none";      
+    
+    logInBtn.style.display = "none";
+    inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
     labelPassWord.style.display ="none";
     labelUserName.style.display ="none";
     newUserBtn.style.display = "none";
+    newUserNameInput.style.display = "none";
+    newUserBtns.style.display = "none";
+    newPassWordInput.style.display = "none";
+    newUserNameLabel.style.display = "none";
+    newUserPassWordLabel.style.display = "none";
+    showNewUserMessage.style.display = "none";
+
+
     let image = document.getElementById("changeDogPic");
     if (image.src.match("dogMember")) {
         image.src = "./img/dogHome.png";
@@ -95,23 +108,40 @@ function printMemberPage () {
 //vy för ut-loggad
 function printHomePage () { 
     showUserMessage.innerHTML = "Hello! <br> If you are a member you know what to do, if not please sign up.";  
+    
     logInBtn.style.display = "block";
     inputPassWord.style.display ="block";
     inputUserName.style.display ="block";
     labelPassWord.style.display ="block";
     labelUserName.style.display ="block";
     newUserBtn.style.display = "block";
+    newUserNameInput.style.display = "none";
+    newUserBtns.style.display = "none";
+    newUserNameInput.style.display = "none";
+    newPassWordInput.style.display = "none";
+    newUserNameLabel.style.display = "none";
+    newUserPassWordLabel.style.display = "none";
+    showNewUserMessage.style.display = "none";
 }
 
  //vy för felmeddelande
 function printWrongPage () { 
     showUserMessage.innerHTML = "Sorry, invalid username and/or password! ";
+    
     logInBtn.style.display = "block";
     inputPassWord.style.display ="block";
     inputUserName.style.display ="block";
     labelPassWord.style.display ="block";
     labelUserName.style.display ="block";
     newUserBtn.style.display = "none";
+    newUserNameInput.style.display = "none";
+    newUserBtns.style.display = "none";
+    newUserNameInput.style.display = "none";
+    newPassWordInput.style.display = "none";
+    newUserNameLabel.style.display = "none";
+    newUserPassWordLabel.style.display = "none";
+    showNewUserMessage.style.display = "none";
+
     let cancelButton = document.createElement("button");
     cancelButton.innerText = "Cancel"
     cancelButton.addEventListener("click", () => {
@@ -122,6 +152,7 @@ function printWrongPage () {
 
 //vy för att skapa ny användare
 newUserBtn.addEventListener("click", () =>  { 
+    
     showUserMessage.innerHTML = "Please create a ";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
@@ -129,27 +160,19 @@ newUserBtn.addEventListener("click", () =>  {
     labelUserName.style.display ="none";
     logInBtn.style.display = "none";
     newUserBtn.style.display = "none";
+    newUserNameInput.style.display = "block";
+    newPassWordInput.style.display = "block";
+    newUserNameLabel.style.display = "block";
+    newUserPassWordLabel.style.display = "block";
+   // showNewUserMessage.innerHTML = "";
 
-    //skapa och skriv ut nya input formulär
-    let newUserNameLabel = document.createElement("label"); 
-    newUserNameLabel.innerHTML = "username: "
-    showUserMessage.appendChild(newUserNameLabel);
-    let newUserNameInput = document.createElement("input");
-    showUserMessage.appendChild(newUserNameInput);
-
-    let newPassWordLabel = document.createElement("label"); 
-    newPassWordLabel.innerHTML = " and pasword: "
-    showUserMessage.appendChild(newPassWordLabel);
-    let newPassWordInput = document.createElement("input");
-    showUserMessage.appendChild(newPassWordInput);
-           
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerHTML = "Save"
     //skapa ny användare spars i ls   
     saveNewUserButton.addEventListener("click", () => { 
         //hämta
         let users = JSON.parse(localStorage.getItem("users")); 
-        let validNewInput = newUserNameInput =! users.userName
+        let validNewInput = newUserNameInput //=! users.userName
         if (validNewInput) {
             
             //ändra 
@@ -158,8 +181,7 @@ newUserBtn.addEventListener("click", () =>  {
               userName: newUserNameInput.value,
               passWord: newPassWordInput.value,
             } 
-            //-varför sparas inte userName i ls?!! (id+password sparas)
-            
+        
             //push o spara
             users.push(newMember); 
             localStorage.setItem("users", JSON.stringify(users)); 
@@ -171,12 +193,12 @@ newUserBtn.addEventListener("click", () =>  {
            printHomePage(); 
         }
     });
-    showUserMessage.appendChild(saveNewUserButton);
+    showNewUserMessage.appendChild(saveNewUserButton);
 
     let cancelButton = document.createElement("button");
     cancelButton.innerText = "Cancel"
     cancelButton.addEventListener("click", () => {
         printHomePage(); 
     });
-    showUserMessage.appendChild(cancelButton);
+    showNewUserMessage.appendChild(cancelButton);
 });

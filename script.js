@@ -1,12 +1,20 @@
-const logInBtn = document.getElementById("logInBtn");
-const newUserBtn = document.getElementById("newUserBtn");
-const inputPassWord = document.getElementById("inputPassWord");
-const inputUserName = document.getElementById("inputUserName");
-const labelPassWord = document.getElementById("labelPassWord");
-const labelUserName = document.getElementById("labelUserName");
-const loginContanier = document.getElementById("loginContanier");
-const showUserMessage = document.getElementById("showUserMessage");
+const logInBtn = document.getElementById("logInBtn")
+const newUserBtn = document.getElementById("newUserBtn")
+const inputPassWord = document.getElementById("inputPassWord")
+const inputUserName = document.getElementById("inputUserName")
+const labelPassWord = document.getElementById("labelPassWord")
+const labelUserName = document.getElementById("labelUserName")
+const loginContanier = document.getElementById("loginContanier")
+const showUserMessage = document.getElementById("showUserMessage")
 const changeDogPic = document.getElementById("changeDogPic");
+const newUserNameInput = document.getElementById("newUserNameInput")
+const newPassWordInput = document.getElementById("newPassWordInput")
+const newUserInput = document.getElementById("newUserInput") 
+const newUserBtns = document.getElementById("newUserBtns") 
+const newUserLabels = document.getElementById("newUserLabels")
+const newUserPassWordLabel = document.getElementById("newUserPassWordLabel")
+const newUserNameLabel = document.getElementById("newUserNameLabel")
+const showNewUserMessage = document.getElementById("showNewUserMessage")
 
 let users = [
     {userId:1, userName: "janne", passWord: "test"},
@@ -44,12 +52,20 @@ function printMemberPage () {
    
     let userName = localStorage.getItem("userName");
     showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
+    
     logInBtn.style.display = "none";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
     labelPassWord.style.display ="none";
     labelUserName.style.display ="none";
     newUserBtn.style.display = "none";
+    newUserNameInput.style.display = "none";
+    newUserBtns.style.display = "none";
+    newPassWordInput.style.display = "none";
+    newUserNameLabel.style.display = "none";
+    newUserPassWordLabel.style.display = "none";
+    showNewUserMessage.style.display = "none";
+
     let image = document.getElementById("changeDogPic");
     if (image.src.match("dogMember")) {
         image.src = "./img/dogHome.png";
@@ -77,23 +93,40 @@ function printMemberPage () {
 //vy ut-loggad
 function printHomePage () {
     showUserMessage.innerHTML = "Hello! <br> If you are a member you know what to do, if not please sign up.";  
+    
     logInBtn.style.display = "block";
     inputPassWord.style.display ="block";
     inputUserName.style.display ="block";
     labelPassWord.style.display ="block";
     labelUserName.style.display ="block";
     newUserBtn.style.display = "block";
+    newUserNameInput.style.display = "none";
+    newUserBtns.style.display = "none";
+    newUserNameInput.style.display = "none";
+    newPassWordInput.style.display = "none";
+    newUserNameLabel.style.display = "none";
+    newUserPassWordLabel.style.display = "none";
+    showNewUserMessage.style.display = "none";
 }
 
 //vy felmeddelande
 function printWrongPage () {
     showUserMessage.innerHTML = "Sorry, invalid username and/or password! ";
+    
     logInBtn.style.display = "block";
     inputPassWord.style.display ="block";
     inputUserName.style.display ="block";
     labelPassWord.style.display ="block";
     labelUserName.style.display ="block";
     newUserBtn.style.display = "none";
+    newUserNameInput.style.display = "none";
+    newUserBtns.style.display = "none";
+    newUserNameInput.style.display = "none";
+    newPassWordInput.style.display = "none";
+    newUserNameLabel.style.display = "none";
+    newUserPassWordLabel.style.display = "none";
+    showNewUserMessage.style.display = "none";
+
     let cancelButton = document.createElement("button");
     cancelButton.innerText = "Cancel"
     cancelButton.addEventListener("click", () => {
@@ -114,17 +147,10 @@ newUserBtn.addEventListener("click", () =>  {
     labelUserName.style.display ="none";
     logInBtn.style.display = "none";
     newUserBtn.style.display = "none";
-    //skapa och skriv ut nya input formulär
-    let newlabelUserNameLabel = document.createElement("label"); 
-    newlabelUserNameLabel.innerHTML = "username: "
-    showUserMessage.appendChild(newlabelUserNameLabel);
-    let newinputPassWordInput = document.createElement("input");
-    showUserMessage.appendChild(newinputPassWordInput);
-    let newlabepassWordLabel = document.createElement("label"); 
-    newlabepassWordLabel.innerHTML = " and pasword: "
-    showUserMessage.appendChild(newlabepassWordLabel);
-    let newlabelUserNameInput = document.createElement("input");
-    showUserMessage.appendChild(newlabelUserNameInput);
+    newUserNameInput.style.display = "block";
+    newPassWordInput.style.display = "block";
+    newUserNameLabel.style.display = "block";
+    newUserPassWordLabel.style.display = "block";
     
     //skapa och skriv ut en spara ny användare- knapp
     let saveNewUserButton = document.createElement("button");
@@ -133,12 +159,12 @@ newUserBtn.addEventListener("click", () =>  {
      //skapa o spar ny användare
  
     });
-    showUserMessage.appendChild(saveNewUserButton);
+    newUserBtns.appendChild(saveNewUserButton);
 
     let cancelButton = document.createElement("button");
     cancelButton.innerText = "Cancel"
     cancelButton.addEventListener("click", () => {
         printHomePage(); 
     });
-    showUserMessage.appendChild(cancelButton);
+    newUserBtns.appendChild(cancelButton);
 });
