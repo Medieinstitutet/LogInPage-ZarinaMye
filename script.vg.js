@@ -6,7 +6,7 @@ const labelPassWord = document.getElementById("labelPassWord")
 const labelUserName = document.getElementById("labelUserName")
 const loginContanier = document.getElementById("loginContanier")
 const showUserMessage = document.getElementById("showUserMessage")
-const changeDogPic = document.getElementById("changeDogPic");
+const changeDogPic = document.getElementById("changeDogPic")
 const newUserNameInput = document.getElementById("newUserNameInput")
 const newPassWordInput = document.getElementById("newPassWordInput")
 const newUserInput = document.getElementById("newUserInput") 
@@ -80,7 +80,6 @@ function printMemberPage () {
     newUserPassWordLabel.style.display = "none";
     showNewUserMessage.style.display = "none";
 
-
     let image = document.getElementById("changeDogPic");
     if (image.src.match("dogMember")) {
         image.src = "./img/dogHome.png";
@@ -152,8 +151,8 @@ function printWrongPage () {
 
 //vy för att skapa ny användare
 newUserBtn.addEventListener("click", () =>  { 
-    
-    showUserMessage.innerHTML = "Please create a ";
+
+    showUserMessage.innerHTML = "Sign up! ";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
     labelPassWord.style.display ="none";
@@ -164,7 +163,6 @@ newUserBtn.addEventListener("click", () =>  {
     newPassWordInput.style.display = "block";
     newUserNameLabel.style.display = "block";
     newUserPassWordLabel.style.display = "block";
-   // showNewUserMessage.innerHTML = "";
 
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerHTML = "Save"
@@ -193,12 +191,12 @@ newUserBtn.addEventListener("click", () =>  {
            printHomePage(); 
         }
     });
-    showNewUserMessage.appendChild(saveNewUserButton);
+    showUserMessage.appendChild(saveNewUserButton);
 
     let cancelButton = document.createElement("button");
     cancelButton.innerText = "Cancel"
     cancelButton.addEventListener("click", () => {
         printHomePage(); 
     });
-    showNewUserMessage.appendChild(cancelButton);
+    showUserMessage.appendChild(cancelButton);
 });

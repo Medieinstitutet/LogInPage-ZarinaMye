@@ -140,7 +140,7 @@ function printWrongPage () {
 // vy skapa ny användare
 newUserBtn.addEventListener("click", () =>  {
    
-    showUserMessage.innerHTML = "Please create a ";
+    showUserMessage.innerText = "Sign up! ";
     inputPassWord.style.display ="none";
     inputUserName.style.display ="none";
     labelPassWord.style.display ="none";
@@ -151,7 +151,7 @@ newUserBtn.addEventListener("click", () =>  {
     newPassWordInput.style.display = "block";
     newUserNameLabel.style.display = "block";
     newUserPassWordLabel.style.display = "block";
-    
+    //showNewUserMessage.style.display = "block";
     //skapa och skriv ut en spara ny användare- knapp
     let saveNewUserButton = document.createElement("button");
     saveNewUserButton.innerHTML = "Save"
@@ -159,12 +159,12 @@ newUserBtn.addEventListener("click", () =>  {
      //skapa o spar ny användare
  
     });
-    newUserBtns.appendChild(saveNewUserButton);
+    showUserMessage.appendChild(saveNewUserButton);
 
     let cancelButton = document.createElement("button");
     cancelButton.innerText = "Cancel"
     cancelButton.addEventListener("click", () => {
         printHomePage(); 
     });
-    newUserBtns.appendChild(cancelButton);
+    showUserMessage.appendChild(cancelButton);
 });

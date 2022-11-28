@@ -8,10 +8,9 @@ G
 
 VG 
 [x] fler användare, doc i readme
-[ ] ny användare kan läggas till via nytt input-formulär
+[/] ny användare kan läggas till via nytt input-formulär
     försökt lösa i filen script.vg.js, 
-    fortfarande 2 fel; namn som visas vid inlogg(null), ny spars ny användare i ls
-    och det går att logga in, fixa knappar i den vyn bara. 
+    1 fel; namn som visas vid inlogg(null)
 
 
 [x] styla/css sidan 
