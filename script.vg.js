@@ -19,34 +19,27 @@ if (localStorage.getItem("userIsLoggedIn")) {
     printHomePage();
 }
 
-if (localStorage.getItem("users")) { 
-} else { 
-    let users = [
-        {userId:1, userName: "janne", passWord: "test",},
-        {userId:2, userName: "Scooby-Doo", passWord: "snacks",},
-        {userId:3, userName: "Offie", passWord: "cucumber4Ever",},
-        {userId:4, userName: "MollanThePinscher", passWord: "1234",},
-        {userId:5, userName: "Pluto", passWord: "H8piff&puff",},
-        {userId:6, userName: "Lajka", passWord: "Sputnik2",},
-    ];
-    localStorage.setItem("users", JSON.stringify(users)); //spar object arrow till ls
-}  
+let users = [
+    {userId:1, userName: "janne", passWord: "test",},
+    {userId:2, userName: "Scooby-Doo", passWord: "snacks",},
+    {userId:3, userName: "Offie", passWord: "cucumber4Ever",},
+    {userId:4, userName: "MollanThePinscher", passWord: "1234",},
+    {userId:5, userName: "Pluto", passWord: "H8piff&puff",},
+    {userId:6, userName: "Lajka", passWord: "Sputnik2",},
+];
+localStorage.setItem("users", JSON.stringify(users)); //spar object arrow till ls
 
-checkLogIn = () => {
-    let users = JSON.parse(localStorage.getItem("users"));
-    let member = users.find(userName => {return userName.userName === inputUserName.value}); //&& passWord.passWord === inputPassWord.value
-    if (member.passWord === inputPassWord.value) {  
-        memberId = member.userId --; 
-        return true;
-    }          
-}
-
-//KVAR! att lösa: ny användare, de spars i ls men loggas inte in
+//KVAR! att lösa: ny användare inlogg
+//loggas inte in för att bara id o password sparas i ls..)
 logInBtn.addEventListener("click", () =>  {   
+
+    let users = JSON.parse(localStorage.getItem("users"));
+    let user = users.find(user => user.userName === inputUserName.value && user.passWord === inputPassWord.value);
+     //|| user.userName === newUserNameInput.value);
     
-    if (checkLogIn()) { 
-        let users = JSON.parse(localStorage.getItem("users")); //hämta o gör till sträng 
-        let userIsLoggedIn = users[memberId];
+    if (user) { 
+        
+        let userIsLoggedIn = inputUserName.value || newUserNameInput.value;
         localStorage.setItem("userIsLoggedIn", JSON.stringify(userIsLoggedIn)); 
         printMemberPage(); 
     }
@@ -55,14 +48,15 @@ logInBtn.addEventListener("click", () =>  {
     }  
 });
 
-checkLogIn = () => {
+/* checkLogIn = () => {
     let users = JSON.parse(localStorage.getItem("users"));
-    let member = users.find(userName => {return userName.userName === inputUserName.value}); //&& passWord.passWord === inputPassWord.value
-    if (member.passWord === inputPassWord.value) {  
-        memberId = member.userId --; 
+    let user = users.find(user => {return user.userName === inputUserName.value && user.passWord === inputPassWord.value});
+    //let member = users.find(userName => {return userName.userName === inputUserName.value}); 
+    if (user.passWord === inputPassWord.value) {  
+        memberId = user.userId; 
         return true;
     }          
-}
+} */
 
 //vy för in-loggad
 function printMemberPage () { 
@@ -73,8 +67,11 @@ function printMemberPage () {
     //let userName = users.memberId.userName.value;
     //let userName = localStorage.getItem("userName");
 
-    let userName = JSON.parse(localStorage.getItem("userName"));
-    showUserMessage.innerText = "Voff and welcome" + " " + userName + " " + "to your member page! ";
+    let name = JSON.parse(localStorage.getItem("userName"));
+    //let name = users.userName.value
+    //let name = users[memberId];
+    //let name = users.find(userId = inputUserName.value}); 
+    showUserMessage.innerText = "Voff and welcome" + " " + name + " " + "to your member page! ";
     logInBtn.style.display = "none";           
     inputPassWord.style.display ="none";      
     inputUserName.style.display ="none";
@@ -149,6 +146,7 @@ newUserBtn.addEventListener("click", () =>  {
     showUserMessage.appendChild(newUserNameLabel);
     let newUserNameInput = document.createElement("input");
     showUserMessage.appendChild(newUserNameInput);
+
     let newPassWordLabel = document.createElement("label"); 
     newPassWordLabel.innerHTML = " and pasword: "
     showUserMessage.appendChild(newPassWordLabel);
@@ -164,16 +162,19 @@ newUserBtn.addEventListener("click", () =>  {
         let validNewInput = newUserNameInput =! users.userName
         if (validNewInput) {
             
+            //ändra 
             let newMember = {    
               userId: users.length ++,
               userName: newUserNameInput.value,
               passWord: newPassWordInput.value,
-            } //ändra
+            } 
+            //-varför sparas inte userName i ls?!! (id+password sparas)
             
+            //push o spara
             users.push(newMember); 
             localStorage.setItem("users", JSON.stringify(users)); 
             {alert("Your username and password have been saved, please log in")};
-            printHomePage(); //push o spara
+            printHomePage(); 
 
         } else {
            {alert("Ops something went wrong")}; 
